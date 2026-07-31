@@ -142,8 +142,8 @@ export default function SelectedAchievements() {
           </svg>
         </div>
         <Image
-          src="/images/footer-landscape.svg"
-          alt=""
+          src="/images/footer-last.png"
+          alt="Paper cutout landscape"
           width={2400}
           height={883}
           unoptimized
