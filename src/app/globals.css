@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary: #FAFAF7;
+  --color-text-primary: #111111;
+  --color-text-secondary: #505050;
+  --color-text-muted: #8A8A8A;
+  --color-surface: #FFFFFF;
+  --color-accent-primary: #E86F93;
+  --color-accent-secondary: #FFD6C8;
+  --color-border-primary: #E8E8E8;
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+  }
+
+  ::selection {
+    background-color: rgba(255, 214, 200, 0.65);
+    color: var(--color-accent-primary);
+  }
+
+  /* Custom easing utilities */
+  .ease-out-expo {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .ease-in-out-quart {
+    transition-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+  }
 }
