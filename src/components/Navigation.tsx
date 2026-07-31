@@ -37,10 +37,10 @@ export default function Navigation() {
         className={`relative flex items-center justify-between gap-12 px-6 md:px-8 transition-all duration-700 ease-out-expo overflow-hidden ${
           scrolled 
             ? "w-[95%] md:w-auto md:min-w-[750px] py-3 bg-white/75 backdrop-blur-xl border border-[#F0AFC0]/45 rounded-full shadow-[0_14px_40px_rgba(232,111,147,0.12)]"
-            : "w-[95%] md:w-auto md:min-w-[750px] py-3 bg-white/40 backdrop-blur-md border border-[#F0AFC0]/20 rounded-full shadow-sm"
+            : "w-full max-w-[1320px] py-3 bg-transparent border-transparent rounded-none"
         }`}
       >
-        <Link href="/" className={`text-3xl md:text-4xl text-[#E86F93] hover:text-[#9C2F55] transition-colors ${cursiveFont.className}`}>
+        <Link href="/" className={`text-3xl md:text-4xl text-[#E86F93] hover:text-[#9C2F55] transition-colors ${cursiveFont.className} ${!scrolled && "drop-shadow-md"}`}>
           Shree
         </Link>
 
@@ -49,7 +49,11 @@ export default function Navigation() {
             <Link 
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-300 whitespace-nowrap"
+              className={`text-sm ${
+                scrolled 
+                  ? "font-medium text-text-secondary" 
+                  : "font-bold text-text-primary drop-shadow-[0_2px_4px_rgba(255,255,255,0.8)]"
+              } hover:text-[#E86F93] transition-colors duration-300 whitespace-nowrap`}
             >
               {item.name}
             </Link>
