@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Section from "./Section";
 
 const roles = [
@@ -95,7 +95,20 @@ const roles = [
 
 export default function Resume() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  useEffect(() => {
+    // Scroll to the second item (VWO) on initial load to make it the default
+    const timer = setTimeout(() => {
+      if (containerRef.current) {
+        const el = document.getElementById(`resume-item-1`);
+        if (el) {
+          containerRef.current.scrollTo({ top: el.offsetTop, behavior: 'instant' });
+        }
+      }
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const pages = roles.map((_, i) => i);
 
@@ -145,17 +158,17 @@ export default function Resume() {
             <div className="bg-white p-8 rounded-2xl text-text-primary border border-[#F0AFC0]/40 shadow-sm relative overflow-hidden">
               <div className="absolute inset-0 opacity-[0.03] bg-gradient-to-br from-[#E86F93] to-transparent pointer-events-none"></div>
               <h3 className="text-2xl font-display font-semibold mb-2 relative z-10 text-text-primary">Bhagyashree Vaidya</h3>
-              <p className="text-[#E86F93] text-sm font-medium mb-2 leading-relaxed relative z-10">
+              <p className="text-[#E86F93] text-[18px] font-medium mb-2 leading-relaxed relative z-10">
                 Senior Product Manager | AI Personalization & Recommendation Systems | Bayesian A/B Testing | Product Analytics | Driving Growth via Behavioral Data | MSIM (Product & AI) @ UW '26
               </p>
             </div>
 
             <div className="px-2 font-medium flex flex-col gap-3 text-sm">
-              <a href="#" className="hover:text-[#E86F93] transition-colors flex items-center gap-2">
-                Linkedin <span className="text-xl">↗</span>
+              <a href="https://www.linkedin.com/in/bhagyashree-vaidya-6b47a811a/" target="_blank" rel="noopener noreferrer" className="hover:text-[#E86F93] transition-colors flex items-center gap-2">
+                LinkedIn <span className="text-xl">↗</span>
               </a>
-              <a href="#" className="hover:text-[#E86F93] transition-colors flex items-center gap-2">
-                Git link <span className="text-xl">↗</span>
+              <a href="https://github.com/Bhagyashree-Vaidya" target="_blank" rel="noopener noreferrer" className="hover:text-[#E86F93] transition-colors flex items-center gap-2">
+                GitHub <span className="text-xl">↗</span>
               </a>
             </div>
           </div>

@@ -63,17 +63,22 @@ I can wholeheartedly vouch for Bhagyashree 100 percent. She defied the odds and 
 
 export default function Evidence() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    setIsExpanded(false);
+  }, [currentIndex]);
 
   const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % recommendations.length);
   const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + recommendations.length) % recommendations.length);
 
-  // Auto-play
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 8000);
-    return () => clearInterval(timer);
-  }, []);
+  // Auto-play removed so user can read at their own pace
 
   const rec = recommendations[currentIndex];
+  
+  const words = rec.text.split(" ");
+  const isLong = words.length > 20;
+  const displayText = isExpanded || !isLong ? rec.text : words.slice(0, 20).join(" ") + "...";
 
   return (
     <Section id="evidence" className="!py-[20px] mt-[10vh]">
@@ -102,8 +107,16 @@ export default function Evidence() {
               </div>
               
               {/* Review Text */}
-              <p className="text-lg md:text-xl font-light text-text-primary leading-relaxed mt-6 mb-10 relative z-10">
-                {rec.text}
+              <p className="text-base md:text-lg font-light text-text-primary leading-relaxed mt-6 mb-10 relative z-10 whitespace-pre-line">
+                {displayText}
+                {isLong && (
+                  <button 
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="ml-2 font-medium text-[#E86F93] hover:text-[#7C3B49] transition-colors"
+                  >
+                    {isExpanded ? "Read less" : "Read more"}
+                  </button>
+                )}
               </p>
               
               {/* Image Snapshot */}

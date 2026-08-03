@@ -126,7 +126,6 @@ export default function SelectedAchievements() {
           ))}
         </div>
       </Section>
-
       <section id="contact" aria-hidden="true" className="relative z-10 w-full bg-bg-primary overflow-hidden">
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 text-bg-primary md:h-24">
           <svg

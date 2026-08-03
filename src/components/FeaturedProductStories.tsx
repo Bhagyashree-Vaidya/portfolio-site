@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import Section from "./Section";
 
 const projects = [
-  { title: "HBCU Digital Equity" },
+  { title: "HBCU Digital Equity", video: "/videos/projects/HBCU.webm" },
   { title: "Starlink Spectrogram Tool" },
   { title: "Neighborhood Care Exchange" },
   { title: "OwnerView" },
@@ -55,7 +55,29 @@ export default function FeaturedProductStories() {
           {/* Image Container wrapper to hold the lamp */}
           <div className="flex-1 relative">
             <div className="w-full h-[450px] md:h-[550px] border-[6px] border-[#F0AFC0]/80 rounded-[2.5rem] bg-white/40 backdrop-blur-md shadow-sm relative overflow-hidden flex items-center justify-center">
-               <span className="text-text-muted font-mono text-sm uppercase tracking-widest relative z-10 font-semibold text-[#E86F93]/60">Image Placeholder</span>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={expandedIndex}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute inset-0 w-full h-full flex items-center justify-center bg-white"
+                >
+                  {expandedIndex !== null && projects[expandedIndex]?.video ? (
+                    <video 
+                      src={projects[expandedIndex].video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover scale-[1.15]"
+                    />
+                  ) : (
+                    <span className="text-text-muted font-mono text-sm uppercase tracking-widest relative z-10 font-semibold text-[#E86F93]/60">Image Placeholder</span>
+                  )}
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             {/* Decorative Lamp floating on the right edge */}
