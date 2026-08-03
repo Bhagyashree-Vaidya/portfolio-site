@@ -34,7 +34,7 @@ const achievements = [
 export default function SelectedAchievements() {
   return (
     <>
-      <Section id="achievements" className="!py-[20px]">
+      <Section id="achievements" className="!py-[20px] mt-[10vh]">
         <div className="mb-[20px]">
           <h3 className="text-sm font-mono text-text-muted uppercase tracking-widest mb-2">Selected Achievements</h3>
           <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-text-primary">Accolades.</h2>

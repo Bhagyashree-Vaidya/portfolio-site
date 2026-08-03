@@ -32,9 +32,9 @@ const trees: TreeStoryItem[] = [
     rightInsetClass: "-translate-x-[10%]",
   },
   {
-    sectionId: "philosophy",
+    sectionId: "resume",
     src: "/images/tree-story/tree-stage-2.png",
-    alt: "Paper-cut tree in its philosophy state",
+    alt: "Paper-cut tree in its resume state",
   },
   {
     sectionId: "work",
@@ -42,13 +42,18 @@ const trees: TreeStoryItem[] = [
     alt: "Paper-cut tree in its projects state",
   },
   {
-    sectionId: "timeline",
+    sectionId: "education",
     src: "/images/tree-story/tree-stage-4.png",
-    alt: "Paper-cut tree in its mature state",
+    alt: "Paper-cut tree in its education state",
+  },
+  {
+    sectionId: "timeline",
+    src: "/images/tree-story/tree-stage-5.png",
+    alt: "Paper-cut tree in its timeline state",
   },
   {
     sectionId: "evidence",
-    src: "/images/tree-story/tree-stage-5.png",
+    src: "/images/tree-story/tree-stage-6.png",
     alt: "Paper-cut tree in its recommendation state",
   },
   {
@@ -190,7 +195,7 @@ function FixedTreeContainer({ children }: { children: React.ReactNode }) {
 
   return (
     <motion.div
-      className="fixed bottom-0 right-0 z-[6] pointer-events-none flex items-end justify-end overflow-visible will-change-transform"
+      className="fixed bottom-0 right-0 z-0 pointer-events-none flex items-end justify-end overflow-visible will-change-transform"
       style={{ x, y, scale }}
     >
       {children}

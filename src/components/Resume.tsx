@@ -121,7 +121,7 @@ export default function Resume() {
   };
 
   return (
-    <Section id="resume" className="!py-[20px]">
+    <Section id="resume" className="!py-[20px] mt-[10vh]">
       <div className="mb-[20px]">
         <h3 className="text-sm font-mono text-text-muted uppercase tracking-widest mb-2">Resume</h3>
         <h2 className="text-4xl md:text-5xl font-display font-medium tracking-tight text-text-primary">Experience.</h2>
@@ -141,7 +141,7 @@ export default function Resume() {
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 w-full">
           {/* Left Column */}
-          <div className="w-full lg:w-[35%] flex flex-col gap-8">
+          <div className="w-full lg:w-[25%] flex flex-col gap-8">
             <div className="bg-white p-8 rounded-2xl text-text-primary border border-[#F0AFC0]/40 shadow-sm relative overflow-hidden">
               <div className="absolute inset-0 opacity-[0.03] bg-gradient-to-br from-[#E86F93] to-transparent pointer-events-none"></div>
               <h3 className="text-2xl font-display font-semibold mb-2 relative z-10 text-text-primary">Bhagyashree Vaidya</h3>
@@ -161,22 +161,22 @@ export default function Resume() {
           </div>
 
           {/* Right Column */}
-          <div className="w-full lg:w-[65%] flex gap-4 md:gap-8 items-start">
+          <div className="w-full lg:w-[75%] flex gap-4 md:gap-8 items-start">
             {/* Scrollable Box */}
             <div
               ref={containerRef}
               onScroll={handleScroll}
-              className="flex-1 h-[660px] border-[6px] border-[#F0AFC0]/60 rounded-[2.5rem] overflow-y-auto bg-white/40 backdrop-blur-md px-6 md:px-10 shadow-sm relative scroll-smooth"
+              className="flex-1 h-[594px] border-[6px] border-[#F0AFC0]/60 rounded-[2.5rem] overflow-y-auto bg-white/40 backdrop-blur-md px-6 md:px-10 shadow-sm relative scroll-smooth resume-scrollbar"
             >
               <div className="flex flex-col">
                 {roles.map((role, idx) => (
-                  <div key={idx} id={`resume-item-${idx}`} className="w-full min-h-[660px] py-6 shrink-0 flex flex-col justify-start border-b border-[#F0AFC0]/20 last:border-0">
+                  <div key={idx} id={`resume-item-${idx}`} className="w-full min-h-[594px] py-6 shrink-0 flex flex-col justify-start border-b border-[#F0AFC0]/20 last:border-0">
                     <div className="flex flex-col md:flex-row md:items-baseline justify-between border-b border-gray-200 pb-2">
                       <h4 className="text-xl font-display font-semibold text-text-primary">{role.role}</h4>
                       <span className="font-mono text-xs text-text-tertiary mt-1 md:mt-0">{role.period}</span>
                     </div>
                     <h5 className="text-[#E86F93] font-medium font-mono text-[19px] uppercase tracking-widest mt-3">{role.company}</h5>
-                    <ul className="list-disc list-inside space-y-1.5 text-text-secondary leading-snug font-light text-[13px] md:text-sm mt-2">
+                    <ul className="list-disc list-inside space-y-1.5 text-text-secondary leading-snug font-light text-[12px] md:text-[13px] mt-2">
                       {role.highlights.map((highlight, hidx) => (
                         <li key={hidx}>{highlight}</li>
                       ))}

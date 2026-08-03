@@ -52,7 +52,7 @@ export default function CareerTimeline() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
   return (
-    <Section id="timeline" className="!py-[20px]">
+    <Section id="timeline" className="!py-[20px] mt-[10vh]">
       <div className="mb-[20px]">
         <h3 className="text-sm font-mono text-text-muted uppercase tracking-widest mb-2">Career Timeline</h3>
         <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-text-primary">Trajectory.</h2>

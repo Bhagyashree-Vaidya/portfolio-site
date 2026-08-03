@@ -19,7 +19,7 @@ export default function FeaturedProductStories() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
   return (
-    <Section id="work" className="!py-[20px]">
+    <Section id="work" className="!py-[20px] mt-[10vh]">
       <div className="mb-[20px]">
         <h3 className="text-sm md:text-base font-medium uppercase tracking-widest text-text-secondary mb-2">Product Stories</h3>
         <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-text-primary">Featured Work.</h2>
@@ -71,7 +71,7 @@ export default function FeaturedProductStories() {
         </div>
 
         {/* Right Side: Accordion */}
-        <div className="w-full lg:w-[45%] flex flex-col pt-8">
+        <div className="w-full lg:w-[45%] flex flex-col pt-4 pb-8 px-6 md:px-10 bg-white/40 backdrop-blur-md rounded-[2.5rem] shadow-sm relative z-10">
           {projects.map((project, idx) => {
             const isExpanded = expandedIndex === idx;
 
@@ -85,7 +85,7 @@ export default function FeaturedProductStories() {
                   className="flex w-full items-center justify-between py-5 text-left transition-all duration-300"
                 >
                   <div className="flex items-center gap-4">
-                    <h3 className={`text-xl md:text-2xl font-normal uppercase tracking-wide transition-colors duration-300 ${isExpanded ? 'text-[#E86F93]' : 'text-[#E86F93]/50 group-hover:text-[#E86F93]'}`}>
+                    <h3 className={`text-base md:text-lg font-normal uppercase tracking-wide transition-colors duration-300 ${isExpanded ? 'text-[#E86F93]' : 'text-[#E86F93]/50 group-hover:text-[#E86F93]'}`}>
                       {project.title}
                     </h3>
                   </div>
@@ -105,7 +105,7 @@ export default function FeaturedProductStories() {
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-8 pt-2 pl-8 flex flex-col space-y-6">
+                      <div className="pb-8 pt-2 flex flex-col space-y-6">
                         <p className="text-base text-text-secondary font-light leading-relaxed">
                           This is a placeholder description for <strong>{project.title}</strong>. We will fill this in with the actual product story, metrics, and case study details later.
                         </p>

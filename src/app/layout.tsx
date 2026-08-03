@@ -36,7 +36,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${geist.variable} ${ibmPlexMono.variable} h-full antialiased font-sans text-text-primary bg-bg-primary`}
     >
-      <body className="min-h-full flex flex-col overflow-x-hidden selection:bg-accent-secondary/30 selection:text-accent-secondary">
+      <body suppressHydrationWarning className="min-h-full flex flex-col overflow-x-hidden selection:bg-accent-secondary/30 selection:text-accent-secondary">
         <Cursor />
         <Navigation />
         <SmoothScrolling>

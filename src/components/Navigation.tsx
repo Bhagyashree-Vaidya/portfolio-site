@@ -49,11 +49,7 @@ export default function Navigation() {
             <Link 
               key={item.name}
               href={item.href}
-              className={`text-sm ${
-                scrolled 
-                  ? "font-medium text-text-secondary" 
-                  : "font-bold text-text-primary drop-shadow-[0_2px_4px_rgba(255,255,255,0.8)]"
-              } hover:text-[#E86F93] transition-colors duration-300 whitespace-nowrap`}
+              className="text-sm font-medium text-text-secondary hover:text-[#E86F93] transition-colors duration-300 whitespace-nowrap"
             >
               {item.name}
             </Link>

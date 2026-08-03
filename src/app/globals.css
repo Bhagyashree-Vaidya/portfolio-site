@@ -39,4 +39,23 @@
   .ease-in-out-quart {
     transition-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
   }
+
+  /* Custom Peach Scrollbar for Resume Box */
+  .resume-scrollbar::-webkit-scrollbar {
+    width: 14px;
+  }
+  .resume-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .resume-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #F0AFC0;
+    border-radius: 20px;
+    border: 4px solid rgba(255, 255, 255, 0);
+    background-clip: padding-box;
+  }
+  .resume-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #E86F93;
+  }
 }
