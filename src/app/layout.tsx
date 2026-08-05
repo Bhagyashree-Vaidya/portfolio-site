@@ -34,6 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${inter.variable} ${geist.variable} ${ibmPlexMono.variable} h-full antialiased font-sans text-text-primary bg-bg-primary`}
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col overflow-x-hidden selection:bg-accent-secondary/30 selection:text-accent-secondary">

@@ -1,4 +1,3 @@
-import OpeningScene from "@/components/OpeningScene";
 import Identity from "@/components/Identity";
 import Education from "@/components/Education";
 import Philosophy from "@/components/Philosophy";
@@ -13,7 +12,6 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between w-full">
       <TreeStory />
-      <OpeningScene />
       <Identity />
       <Resume />
       <FeaturedProductStories />

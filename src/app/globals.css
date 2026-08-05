@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg-primary: #FAFAF7;
+  --color-bg-primary: #FAF8F4;
   --color-text-primary: #111111;
   --color-text-secondary: #505050;
   --color-text-muted: #8A8A8A;

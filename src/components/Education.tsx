@@ -21,11 +21,11 @@ export default function Education() {
         <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-text-primary">Education.</h2>
       </div>
 
-      <div className="w-full max-w-[1320px] mx-auto mt-8 flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-        
+      <div className="w-full lg:w-[100%] max-w-[1320px] mx-auto mt-8 flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-0">
+
         {/* Left Side: Content */}
         <div className="w-full lg:w-[55%] flex flex-col gap-6">
-          
+
           {/* Education Header Info */}
           <div className="space-y-4">
             <h3 className="text-3xl font-display font-bold text-text-primary">University of Washington</h3>
@@ -68,9 +68,9 @@ export default function Education() {
         </div>
 
         {/* Right Side: Image Carousel */}
-        <div className="w-full lg:w-[45%] sticky top-32 flex flex-col gap-6">
-          <div className="w-full h-[550px] md:h-[715px] border-[6px] border-[#F0AFC0]/80 rounded-[2.5rem] bg-white/40 shadow-sm relative overflow-hidden flex items-center justify-center">
-            <Image 
+        <div className="w-full lg:w-[43%] sticky top-32 flex flex-col gap-6">
+          <div className="w-full aspect-[3/4] h-auto border-[6px] border-[#F0AFC0]/80 rounded-[2.5rem] bg-white/40 shadow-sm relative overflow-hidden flex items-center justify-center">
+            <Image
               src="/images/education/education-1.jpeg"
               alt="Education Activity"
               fill
