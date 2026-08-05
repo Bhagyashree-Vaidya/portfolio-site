@@ -132,33 +132,38 @@ function SectionObserver({
 
 function TreeImage({ item }: { item: TreeStoryItem | null }) {
   const shouldReduceMotion = useReducedMotion();
-  const colorFilter = (saturationBoost = 1, brightnessBoost = 1) =>
-    `hue-rotate(${item?.hue ?? 0}deg) saturate(${(item?.saturation ?? 1) * saturationBoost}) brightness(${(item?.brightness ?? 1) * brightnessBoost})`;
+  const colorFilter = (tree: TreeStoryItem, saturationBoost = 1, brightnessBoost = 1) =>
+    `hue-rotate(${tree.hue ?? 0}deg) saturate(${(tree.saturation ?? 1) * saturationBoost}) brightness(${(tree.brightness ?? 1) * brightnessBoost})`;
+
+  // Deduplicate by src and filter out nulls to avoid duplicate keys and empty src errors
+  const uniqueTrees = Array.from(
+    new Map(trees.filter(t => t.src).map(t => [t.src, t])).values()
+  );
 
   return (
     <div className="grid h-[min(34vw,300px)] w-[min(68vw,560px)] min-h-[170px] min-w-[280px] translate-x-px translate-y-px place-items-end md:h-[min(22vw,330px)] md:w-[min(40vw,640px)] lg:h-[min(18vw,350px)] lg:w-[min(34vw,680px)]">
-      <AnimatePresence initial={false}>
-        {item?.src && (
+      {uniqueTrees.map((tree) => {
+        const isActive = item?.src === tree.src;
+        return (
           <motion.div
-            key={item.src}
-            className={`relative col-start-1 row-start-1 h-full w-full will-change-[opacity,filter] ${item.rightInsetClass ?? ""}`}
+            key={tree.src!}
+            className={`relative col-start-1 row-start-1 h-full w-full will-change-[opacity,filter] ${tree.rightInsetClass ?? ""} ${isActive ? "z-10 pointer-events-auto" : "z-0 pointer-events-none"}`}
             initial={{ opacity: 0 }}
             animate={{
-              opacity: 1,
+              opacity: isActive ? 1 : 0,
               filter: shouldReduceMotion
-                ? colorFilter()
+                ? colorFilter(tree)
                 : [
-                    colorFilter(),
-                    colorFilter(1.04, 1.025),
-                    colorFilter(0.98, 0.995),
-                    colorFilter(),
+                    colorFilter(tree),
+                    colorFilter(tree, 1.04, 1.025),
+                    colorFilter(tree, 0.98, 0.995),
+                    colorFilter(tree),
                   ],
             }}
-            exit={{ opacity: 0 }}
             transition={{
               opacity: {
-                duration: shouldReduceMotion ? 0.2 : 0.55,
-                ease: [0.16, 1, 0.3, 1],
+                duration: shouldReduceMotion ? 0.2 : 0.6,
+                ease: "easeInOut",
               },
               filter: {
                 duration: 5.5,
@@ -168,16 +173,17 @@ function TreeImage({ item }: { item: TreeStoryItem | null }) {
             }}
           >
             <Image
-              src={item.src}
-              alt={item.alt ?? ""}
+              src={tree.src!}
+              alt={tree.alt ?? ""}
               fill
               unoptimized
+              priority
               sizes="(min-width: 1024px) 34vw, (min-width: 768px) 40vw, 68vw"
               className="select-none object-contain object-bottom-right"
             />
           </motion.div>
-        )}
-      </AnimatePresence>
+        );
+      })}
     </div>
   );
 }
