@@ -68,8 +68,8 @@ export default function Education() {
         </div>
 
         {/* Right Side: Image Carousel */}
-        <div className="w-full lg:w-[43%] sticky top-32 flex flex-col gap-6">
-          <div className="w-full aspect-[3/4] h-auto border-[6px] border-[#F0AFC0]/80 rounded-[2.5rem] bg-white/40 shadow-sm relative overflow-hidden flex items-center justify-center">
+        <div className="w-full lg:w-[43%] sticky top-24 flex flex-col gap-6">
+          <div className="w-[90%] aspect-[3/4] h-auto border-[6px] border-[#F0AFC0]/90 rounded-[2.5rem] bg-white/40 shadow-sm relative overflow-hidden flex items-center justify-center">
             <Image
               src="/images/education/education-1.jpeg"
               alt="Education Activity"
