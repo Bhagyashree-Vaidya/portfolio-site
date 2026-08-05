@@ -217,6 +217,11 @@ function FixedTreeContainer({ children }: { children: React.ReactNode }) {
 export default function TreeStory() {
   const items = useMemo(() => trees, []);
   const [activeTree, setActiveTree] = useState<TreeStoryItem | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     items.forEach((item) => {
@@ -228,6 +233,8 @@ export default function TreeStory() {
       image.src = item.src;
     });
   }, [items]);
+
+  if (!mounted) return null;
 
   return (
     <>

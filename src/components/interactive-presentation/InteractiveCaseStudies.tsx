@@ -41,7 +41,7 @@ export default function InteractiveCaseStudies() {
       className="relative w-full h-[100vh] min-h-[900px] overflow-hidden bg-transparent text-[#111111]"
       style={{ "--accent": accentColor } as React.CSSProperties}
     >
-      <div className="mx-auto w-full max-w-[1600px] h-full flex flex-col pt-8 pb-6 px-16">
+      <div className="mx-auto w-full max-w-[1600px] h-full flex flex-col pt-8 pb-6 px-4 md:px-8 lg:px-16">
         
         {/* 1. Product Selector */}
         <nav className="flex items-center gap-2 mb-8 overflow-x-auto no-scrollbar shrink-0">
@@ -77,7 +77,7 @@ export default function InteractiveCaseStudies() {
         </nav>
 
         {/* Middle Area: Browser & Right Panel */}
-        <div className="flex gap-8 flex-1 min-h-0 mb-6 relative">
+        <div className="flex flex-col lg:flex-row gap-8 flex-1 min-h-0 mb-6 relative">
           
           {/* 2 & 3. Main Browser Window */}
           <div className="flex-[3] relative flex flex-col min-w-0 bg-white rounded-[28px] overflow-hidden border border-black/5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] transition-shadow duration-300 hover:shadow-[0_40px_80px_rgba(15,23,42,0.12)]">
@@ -274,8 +274,9 @@ export default function InteractiveCaseStudies() {
             </button>
           </div>
 
-          <div className="flex gap-3 overflow-x-auto no-scrollbar pb-4 px-2 w-full max-w-full">
-            {activeCaseStudy.slides.map((slide, idx) => {
+          <div className="w-full overflow-x-auto no-scrollbar pb-4 px-2">
+            <div className="flex gap-3 w-max mx-auto">
+              {activeCaseStudy.slides.map((slide, idx) => {
               const isActive = idx === activeSlideIndex;
               return (
                 <button
@@ -312,7 +313,8 @@ export default function InteractiveCaseStudies() {
                   </div>
                 </button>
               );
-            })}
+              })}
+            </div>
           </div>
         </div>
 

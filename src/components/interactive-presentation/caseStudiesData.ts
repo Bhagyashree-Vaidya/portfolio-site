@@ -22,25 +22,6 @@ export type CaseStudy = {
 
 export const caseStudiesData: CaseStudy[] = [
   {
-    id: "phonepe",
-    name: "PhonePe",
-    logo: "📱",
-    accentColor: "#6B46C1", // Purple
-    slides: [
-      { id: "slide-1", title: "Slide 1", imageSrc: "/images/case-studies/pdf1/slide-01.jpg" },
-      { id: "slide-2", title: "Slide 2", imageSrc: "/images/case-studies/pdf1/slide-02.jpg" },
-      { id: "slide-3", title: "Slide 3", imageSrc: "/images/case-studies/pdf1/slide-03.jpg" },
-      { id: "slide-4", title: "Slide 4", imageSrc: "/images/case-studies/pdf1/slide-04.jpg" },
-      { id: "slide-5", title: "Slide 5", imageSrc: "/images/case-studies/pdf1/slide-05.jpg" },
-      { id: "slide-6", title: "Slide 6", imageSrc: "/images/case-studies/pdf1/slide-06.jpg" },
-      { id: "slide-7", title: "Slide 7", imageSrc: "/images/case-studies/pdf1/slide-07.jpg" },
-      { id: "slide-8", title: "Slide 8", imageSrc: "/images/case-studies/pdf1/slide-08.jpg" },
-      { id: "slide-9", title: "Slide 9", imageSrc: "/images/case-studies/pdf1/slide-09.jpg" },
-      { id: "slide-10", title: "Slide 10", imageSrc: "/images/case-studies/pdf1/slide-10.jpg" },
-      { id: "slide-11", title: "Slide 11", imageSrc: "/images/case-studies/pdf1/slide-11.jpg" },
-    ]
-  },
-  {
     id: "zomato",
     name: "Zomato",
     logo: "🍔",
