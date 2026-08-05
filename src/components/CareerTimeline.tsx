@@ -54,11 +54,11 @@ export default function CareerTimeline() {
   return (
     <Section id="timeline" className="!py-[20px] mt-[10vh]">
       <div className="mb-[20px]">
-        <h3 className="text-sm font-mono text-text-muted uppercase tracking-widest mb-2">Career Timeline</h3>
-        <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-text-primary">Trajectory.</h2>
+        <h3 className="text-sm md:text-base font-medium uppercase tracking-widest text-text-secondary mb-2">CASE STUDIES</h3>
+        <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-text-primary">Product.</h2>
       </div>
 
-      <div className="w-full max-w-[1200px] mx-auto">
+      <div className="w-full max-w-[1200px] mx-auto hidden">
         <div className="flex flex-col border-t border-border-primary/50">
           {roles.map((role, idx) => {
             const isExpanded = expandedIndex === idx;

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import {
   motion,
   type MotionValue,
@@ -101,12 +103,14 @@ function SceneObjectLayer({
             className="pointer-events-none absolute bottom-[1.5%] left-1/2 z-0 h-[5.5%] w-[42%] -translate-x-1/2 rounded-[999px] bg-[#254626]/30 blur-[3px] mix-blend-multiply"
           />
         ) : null}
-        <img
+        <Image
           src={object.src}
           alt=""
+          fill
           draggable={false}
-          className="pointer-events-none absolute z-10 max-w-none select-none"
+          className="pointer-events-none absolute z-10 select-none"
           style={imageStyle}
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
     </motion.div>

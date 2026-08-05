@@ -52,6 +52,11 @@ const trees: TreeStoryItem[] = [
     alt: "Paper-cut tree in its timeline state",
   },
   {
+    sectionId: "case-studies",
+    src: "/images/tree-story/tree-stage-5.png",
+    alt: "Paper-cut tree in its case studies state",
+  },
+  {
     sectionId: "evidence",
     src: "/images/tree-story/tree-stage-6.png",
     alt: "Paper-cut tree in its recommendation state",

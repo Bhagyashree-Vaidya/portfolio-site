@@ -1,13 +1,15 @@
+import dynamic from "next/dynamic";
 import Identity from "@/components/Identity";
-import Education from "@/components/Education";
-import Philosophy from "@/components/Philosophy";
-import FeaturedProductStories from "@/components/FeaturedProductStories";
-import CareerTimeline from "@/components/CareerTimeline";
-import Evidence from "@/components/Evidence";
-import SelectedAchievements from "@/components/SelectedAchievements";
-import TreeStory from "@/components/TreeStory";
 import Resume from "@/components/Resume";
-import ContactFooter from "@/components/ContactFooter";
+import TreeStory from "@/components/TreeStory";
+
+const FeaturedProductStories = dynamic(() => import("@/components/FeaturedProductStories"), { ssr: true });
+const Education = dynamic(() => import("@/components/Education"), { ssr: true });
+const CareerTimeline = dynamic(() => import("@/components/CareerTimeline"), { ssr: true });
+const InteractiveCaseStudies = dynamic(() => import("@/components/interactive-presentation/InteractiveCaseStudies"), { ssr: true });
+const Evidence = dynamic(() => import("@/components/Evidence"), { ssr: true });
+const SelectedAchievements = dynamic(() => import("@/components/SelectedAchievements"), { ssr: true });
+const ContactFooter = dynamic(() => import("@/components/ContactFooter"), { ssr: true });
 
 export default function Home() {
   return (
@@ -27,6 +29,7 @@ export default function Home() {
           <FeaturedProductStories />
           <Education />
           <CareerTimeline />
+          <InteractiveCaseStudies />
           <Evidence />
           <SelectedAchievements />
         </div>

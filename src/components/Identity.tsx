@@ -78,6 +78,7 @@ export default function Identity() {
               alt="Bhagyashree Vaidya"
               fill
               priority
+              unoptimized
               sizes="(min-width: 1280px) 58vw, (min-width: 768px) 56vw, 96vw"
               className="object-contain object-bottom md:object-right-bottom drop-shadow-[0_15px_30px_rgba(0,0,0,0.3)]"
             />
