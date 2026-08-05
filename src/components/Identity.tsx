@@ -32,7 +32,7 @@ export default function Identity() {
         />
       </motion.div>
 
-      <div className="relative z-20 mx-auto grid w-full max-w-[1540px] gap-8 px-6 py-[20px] md:grid-cols-12 md:gap-4 lg:px-10">
+      <div className="relative z-20 mx-auto grid w-full max-w-[1540px] gap-8 px-6 pt-[120px] pb-12 md:grid-cols-12 md:gap-4 lg:px-10">
         
         {/* Title row (spans across the top) */}
         <motion.div
@@ -45,9 +45,10 @@ export default function Identity() {
           <div className="mb-2 font-mono text-sm uppercase tracking-widest text-text-tertiary">
             About
           </div>
-          <h2 className="text-4xl font-display font-medium leading-[1.1] tracking-tight text-text-primary sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] relative z-30 w-full max-w-none md:whitespace-nowrap">
-            I move customer intent <br className="hidden md:block" />
-            into purchase decisions.
+          <h2 className="text-3xl font-display font-medium leading-[1.1] tracking-tight text-text-primary sm:text-4xl md:text-5xl lg:text-6xl xl:text-[5rem] relative z-30 w-full max-w-none md:whitespace-nowrap">
+            I move customer <br />
+            intent into <br />
+            purchase decisions.
           </h2>
         </motion.div>
 
@@ -59,7 +60,7 @@ export default function Identity() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className="relative z-20 max-w-[640px] md:col-span-5 self-start pt-2"
         >
-          <p className="max-w-[620px] text-lg font-light leading-relaxed text-text-primary sm:text-xl md:text-2xl lg:text-2xl">
+          <p className="max-w-[620px] text-sm font-light leading-relaxed text-text-primary sm:text-base md:text-lg lg:text-xl">
             Shree spent her career building products that influence what customers discover, compare, and ultimately choose, from enterprise retail, healthcare, debt collection, and space industry. Her work spans search, merchandising, personalization, experimentation, and behavioral analytics, but she's known for asking a simpler question before writing a roadmap: Is this actually the problem worth solving? She enjoys working with customers, engineering teams, and business leaders to separate feature requests from real opportunities, helping organizations invest where customer value and business impact intersect.
           </p>
         </motion.div>

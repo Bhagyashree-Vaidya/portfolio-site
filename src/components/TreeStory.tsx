@@ -201,7 +201,7 @@ function FixedTreeContainer({ children }: { children: React.ReactNode }) {
 
   return (
     <motion.div
-      className="fixed bottom-0 right-0 z-0 pointer-events-none flex items-end justify-end overflow-visible will-change-transform"
+      className="absolute bottom-0 right-0 z-0 pointer-events-none flex items-end justify-end overflow-visible will-change-transform"
       style={{ x, y, scale }}
     >
       {children}

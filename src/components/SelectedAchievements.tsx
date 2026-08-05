@@ -126,30 +126,6 @@ export default function SelectedAchievements() {
           ))}
         </div>
       </Section>
-      <section id="contact" aria-hidden="true" className="relative z-10 w-full bg-bg-primary overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 text-bg-primary md:h-24">
-          <svg
-            viewBox="0 0 1440 120"
-            preserveAspectRatio="none"
-            className="h-full w-full"
-            aria-hidden="true"
-          >
-            <path
-              d="M0 0h1440v42c-92 30-188 44-288 42-136-2-232-42-370-44-155-2-250 48-398 50C241 92 137 48 0 78V0Z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
-        <Image
-          src="/images/Main.svg"
-          alt="Paper cutout landscape"
-          width={2400}
-          height={883}
-          unoptimized
-          sizes="100vw"
-          className="block h-auto w-full"
-        />
-      </section>
     </>
   );
 }
