@@ -82,7 +82,7 @@ const roles = [
   },
   {
     company: "Hotelkey",
-    role: "Product Management Intern — Hotelkey",
+    role: "Product Management Intern",
     period: "Dec 2017 to May 2018",
     location: "",
     type: "",
@@ -196,7 +196,7 @@ export default function Resume() {
                       <span className="text-xs text-text-muted">{role.location}{role.location && role.type ? ' · ' : ''}{role.type}</span>
                     </div>
                     {role.bio && (
-                      <p className="text-sm text-text-secondary mt-2 italic">{role.bio}</p>
+                      <p className="text-[13px] text-text-secondary mt-2 italic">{role.bio}</p>
                     )}
                     <ul className="list-disc list-inside space-y-1.5 text-text-secondary leading-snug font-light text-[12px] md:text-[13px] mt-3">
                       {role.highlights.map((highlight, hidx) => (
