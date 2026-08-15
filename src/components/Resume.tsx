@@ -6,89 +6,92 @@ import Section from "./Section";
 
 const roles = [
   {
-    company: "UW Starlink - AI Research & Signal Intelligence",
-    role: "Graduate Product Developer",
-    period: "Mar 2026 - Present",
+    company: "University of Washington",
+    role: "Graduate Product Developer - Starlink Satellite Data Platform",
+    period: "Mar 2026 - June",
+    location: "Seattle, Washington, United States · Remote",
+    type: "Part-time",
+    bio: "Bio - A research lab that intercepts raw satellite internet radio signals using a custom rooftop antenna dish. Because space satellites move at insane speeds, their signals get messy. This lab builds software to clean up that data and track individual satellites. So, I built the entire coding pipeline from scratch to turn messy radio waves into neat, computer-labeled satellite tracks.",
     highlights: [
-      <>Designed and shipped a <strong>full-stack data processing tool (Python + Streamlit)</strong> that takes raw satellite signal captures and outputs cleaned, labeled, analysis-ready data, replacing a manual workflow that previously took researchers <strong>hours per dataset</strong></>,
-      <>Built an interactive visualization layer with <strong>14 user-configurable parameters</strong>, enabling researchers to tune detection sensitivity in real time, adopted after a single demo to the PI and PhD team</>,
-      <>Engineered a detection pipeline that automatically identifies individual Starlink satellite tracks from noisy sensor data with <strong>90%+ accuracy</strong>, processing datasets that contain signals from <strong>4,000+ constellation satellites</strong></>,
-      <>Integrated with the team's existing Doppler prediction codebase (orbital mechanics models) to enable <strong>automated matching</strong> between measured signals and theoretical satellite positions</>,
-      <>Scoped the full product roadmap from <strong>prototype to production</strong>: real data adaptation, correspondence matching, persistent database for cross-session analysis, and Docker deployment on the lab's GPU server</>
+      <>Navigated extreme <strong>ambiguity</strong> and exercised <strong>autonomous ownership</strong> to architect a 0→1 data-processing platform in <strong>Python and Streamlit</strong> for proprietary Starlink downlink signals, replacing manual workflows with satellite-identified datasets used daily by the research team.</>,
+      <>Eliminated <strong>track-assignment collisions across overlapping Doppler-shift S-curve trajectories</strong> by implementing a two-stage pipeline using <strong>DBSCAN clustering and the Hungarian Algorithm</strong> to resolve high-density signal detections against theoretical trajectories.</>,
+      <>Achieved <strong>90%+ automated detection accuracy</strong> by implementing real-time signal observability and automated regression testing queues that suppressed side-lobe leakage from 53.5 dB to 14.1 dB, cutting data turnaround time from hours to under one minute and deployed interactive analysis through Docker on GPU infrastructure.</>
     ],
   },
   {
-    company: "VWO - Enterprise Experimentation",
-    role: "Senior Product Manager",
-    period: "May 2025 - Sep 2025",
+    company: "VWO",
+    role: "Senior Product Manager | US , VWO",
+    period: "Mar 2025 - Sep 2025",
+    location: "Remote",
+    type: "Full-time",
+    bio: "Bio - B2B SaaS digital optimization and enterprise split-testing platform serving 3,000+ global brands. So, I ran the product line that added autonomous AI agents to the platform, building the evaluation pipelines that automatically monitored and improved these web tests and server side testing.",
     highlights: [
-      <>Secured <strong>8 net-new enterprise client accounts</strong> in the North American market by leading technical product strategy on Fortune 500 sales calls alongside Account Executives and Business Development teams to resolve complex procurement roadblocks</>,
-      <>Captured <strong>$10M in incremental annualized revenue</strong> for enterprise e-commerce merchants by designing and launching server-side Feature Experimentation and Web Rollout capabilities across third-party search engines and high-volume checkout funnels</>,
-      <>Increased user checkout conversion rates by <strong>4.2%</strong> by deploying <strong>50+ Bayesian and frequentist</strong> Server-Side A/B experiments using VWO's SmartStats engine to improve plan-selection pricing relevance and product discoverability</>,
-      <>Co-engineered VWO's core recommendation engine roadmap by integrating AI-driven predictive modeling (Wandz / Personalize frameworks) to automate audience segmentation and deliver context-aware product suggestions</>,
-      <>Engineered VWO's plug-and-play third-party ecosystem by productizing native data stream integrations with Twilio Segment, RudderStack, Mixpanel, Amplitude, and HubSpot; eliminated manual tracking script configurations to accelerate time-to-value for enterprise marketing teams</>,
-      <>Reduced enterprise sales cycle duration by <strong>15%</strong> by translating complex client-side architecture requirements into standardized, scalable feature roadmaps that eliminated custom engineering overhead</>,
-      <>Defended product roadmap decisions to C-suite and VP-level stakeholders by producing bi-weekly telemetry presentations analyzing user behavioral funnels, interface drop-offs, and commercial ARR impact metrics</>
+      <>Owned the production-grade <strong>AI Quality &amp; Evaluations roadmap for Wandz, VWO's agentic AI layer</strong>, defining reliability standards, LLM <strong>groundedness</strong> benchmarks, and release <strong>guardrails</strong> across <strong>15K–20K production agent actions/week spanning 40–50 enterprise accounts</strong> through LLM-as-judge evaluation, failure taxonomy, and continuous quality telemetry.</>,
+      <>Helped drive critical agentic-platform error rates from <strong>~9% to &lt;3.5% in two months (60%+ reduction)</strong> by introducing <strong>human-in-the-loop</strong> exception routing and <strong>AI safety</strong> validation gates that blocked incorrect context interpretation, context rot and independently verified experiment variants.</>,
+      <>Reduced <strong>AI evaluation turnaround from 1–2 days to &lt;1 minute and manual QA effort by ~4–5 hours/week per evaluator and uplifted developer experience</strong> by replacing sample-based reviews with full-coverage automated scoring and a centralized evaluation application adopted daily by <strong>4 product teams / 12–15 users</strong>.</>,
+      <>Redirected engineering investment from an underlying LLM upgrade to <strong>agent-harness reliability</strong> by building a benchmark that separated model capability from multi-step execution failures, enabling product teams to prioritize fixes against the failure modes affecting production customers.</>,
+      <>Captured <strong>$10M in incremental annualized revenue</strong> for enterprise e-commerce merchants by steering the rollout of server-side feature experimentation capabilities; managed the execution of 50+ Server-Side tests utilizing VWO's <strong>Bayesian SmartStats engine</strong> to verify pricing relevance and lift checkout conversion rates by 4.2%</>
     ],
   },
   {
     company: "Unity Senior Health",
-    role: "Product Manager",
-    period: "Oct 2024 - Apr 2025",
+    role: "Senior Product Manager, Unity Senior Health",
+    period: "Sept 2024 - Mar 2025",
+    location: "Florida, United States · Remote",
+    type: "Contract",
+    bio: "Bio - B2C healthcare marketplace specializing in Medicare insurance enrollment. Healthcare laws are incredibly confusing, causing seniors to frequently get frustrated, make mistakes, or drop out of the checkout funnel. So, I designed the smart, step-by-step sign-up flow to prevent compliance errors and make picking a doctor simple.",
     highlights: [
-      <>Launched a 0-to-1 Medicare insurance marketplace platform within a <strong>6-month timeline</strong>, transforming a manual workflow into an intuitive, self-serve digital decision-journey that captured <strong>300+ net-new organic enrollments</strong> ahead of the peak Annual Enrollment Period</>,
-      <>Reduced checkout friction and user drop-offs by <strong>32%</strong> by conducting <strong>50+ direct customer interviews</strong> using the Jobs-to-be-Done framework to isolate and redesign interface areas causing cognitive overload during plan selection</>,
-      <>Lowered customer acquisition costs by <strong>18%</strong> by partnering with pre-sales agents to analyze live phone objections and lead drop-offs and build a transparent plan-comparison that resolved user anxieties natively</>,
-      <>Shipped a location-based personalization feature that dynamically mapped senior IP/ZIP data directly to localized in-network doctors and regional Medicare Advantage networks, eliminating a massive consumer pain point and driving a <strong>25% lift in quote accuracy</strong></>,
-      <>Maintained a <strong>100% platform compliance rate</strong> across all states by designing backend database validation logic that natively enforces CMS communication guardrails, HIPAA data privacy frameworks, and TCPA consent laws</>,
-      <>Analyzed user drop-offs and behavioral analytics across <strong>10,000+ early quote</strong> and eligibility search flows; data-prioritized high-impact UX enhancements that achieved <strong>300+ net-new organic digital enrollments</strong> within the post-launch quarter</>
+      <>Generated <strong>300+ net-new digital enrollments within 6 months and ahead of the Annual Enrollment Period</strong> by launching the company's first end-to-end Medicare marketplace, digitizing quote, eligibility, plan comparison, and enrollment workflows while navigating provider-network and regulatory constraints by having full <strong>autonomous ownership</strong> to launch.</>,
+      <>Reduced <strong>plan-selection drop-off by 32%</strong> by translating insights from <strong>50+ customer interviews and funnel/session analytics, customer discovery loops</strong> into a personalized questionnaire, ranked plan recommendations, and agent-assisted enrollment flow that simplified complex Medicare choices.</>,
+      <>Reduced acquisition cost from <strong>$210 to $172 per confirmed enrollment (~18%)</strong> in a controlled 50/50 digital-first vs. agent-first cohort by using HubSpot call transcripts and Mixpanel funnel data to identify commitment concerns, then adding provider/prescription lookup and disenrollment-rights guidance to the plan-comparison flow.</>,
+      <>Improved <strong>Medicare quote accuracy by 25% (61% → 76%)</strong> by defining location-resolution and provider-network matching rules that prioritized verified ZIP/address data over unreliable IP detection, while partnering with engineering to surface real-time doctor network status using refreshed insurer data.</>,
+      <>Eliminated compliance violations flagged in internal reviews across <strong>12 states over 9 months</strong> by translating CMS, HIPAA, and state-specific eligibility requirements into ~40 reusable validation scenarios, guardrails, contraints, and instructions that automatically gated enrollment paths and routed ambiguous cases to licensed agents.</>
     ],
   },
   {
     company: "Stallion Express",
-    role: "Product Engineer",
-    period: "Aug 2023 - Sep 2024",
+    role: "Senior Product Manager Stallion Express",
+    period: "April 2023 - Sep 2024",
+    location: "Mississauga, Ontario, Canada · Remote",
+    type: "Full-time",
+    bio: "Stallion Express is a high-growth B2B/B2C cross-border e-commerce logistics and shipping aggregator platform processing 5M+ annual parcels for 40,000+ active digital merchants. Managed the technical product roadmap and GTM strategy for shipping discovery, geospatial search, and multi-currency checkouts..",
     highlights: [
-      <>Launched shipping option discovery, carrier search, &amp; shipping recommendations, reducing checkout friction through a proprietary linear-programming multi-carrier selection engine for <strong>40,000+ active e-commerce merchants</strong>; drove a <strong>14% decrease in cart abandonment</strong> by highlighting <strong>instant 70%+ savings</strong> against national carriers</>,
-      <>Owned the technical roadmap, designed search routing models via Elasticsearch, Algolia, and BM25; utilized Bayesian AB testing across <strong>3.5M+ simulated search queries</strong> to increase checkout conversion rates by <strong>4.2%</strong> and directly lift platform ARR by <strong>$450K</strong></>,
-      <>Drove local user adoption and <strong>accelerated onboarding by 22%</strong> by designing a geospatial, IP-to-GPS location personalization feature that mapped new users to their closest physical hub; reduced discovery-to-first-shipment latency and supported a total annual shipping volume of <strong>5M+ processed parcels</strong></>,
-      <>Enabled the successful launch of <strong>10+ new "Drop &amp; Go" locations</strong> across the Montreal, Vancouver, and Surrey markets by rewriting backend database pricing logic to support 32 distinct regional pricing zones, ensuring <strong>100% billing accuracy</strong> and capturing <strong>$1.2M in new regional GMV</strong></>,
-      <>Minimized payment friction and cross-border FX drop-offs by leading the technical integration of Stripe and PayPal multi-currency payment gateways; processed <strong>$2M+ in monthly transactional credits</strong>, allowing US and Canadian merchants to pay in native currency while <strong>eliminating a 2.5% foreign exchange transaction penalty</strong></>,
-      <>Analyzed user behavioral funnels and clickstream data drops across web and mobile platforms using mixpanel/behavioral analytics; identified and prioritized 4 critical search-relevance bugs, resulting in a <strong>sustained 5% month-over-month growth rate</strong> in total customer lifetime value</>
+      <><strong>1.Reduced checkout abandonment by 14%</strong> in an A/B test by launching shipping discovery that showed customers multiple carrier options with transparent 70%+ savings comparisons, reducing uncertainty around shipping costs at checkout for a platform serving 40,000+ merchants.</>,
+      <><strong>2.Spearheaded a 0-to-1 MVP proposal targeting a $9M cost-reduction opportunity for a native self-service parcel drop-off and label-management workflow across iOS and Android..</strong></>,
+      <><strong>3. Increased first-shipment activation by 22%</strong> by introducing location-based personalization that identified a new user's nearest shipping hub and surfaced relevant shipping options without requiring manual location entry. and supported a total annual shipping volume of 5M+ processed parcels.</>,
+      <><strong>4. Enabled 10+ new Drop &amp; Go locations</strong> across Montreal, Vancouver, and Surrey, supporting 32 regional pricing zones and $1.2M in incremental GMV, by defining requirements for location-specific carrier pricing and partnering with Engineering to replace a single global rate model with reusable regional pricing.</>,
+      <><strong>5. Minimized payment friction and cross-border FX drop-offs</strong> by leading the technical integration of Stripe and PayPal multi-currency payment gateways; processed $2M+ in monthly transactional credits, allowing US and Canadian merchants to pay in native currency while eliminating a 2.5% foreign exchange transaction penalty.</>,
+      <>Stakeholder Management, User Acceptance Testing and +3 skills</>
     ],
   },
   {
     company: "Branding Arc",
-    role: "Technical Program Manager - Cloud Migration",
-    period: "Mar 2020 - Apr 2023",
+    role: "Senior Product Manager",
+    period: "June 2018 - Apr 2023",
+    location: "Florida, United States · Remote",
+    type: "Full-time",
+    bio: "Cloud PaaS automation firm specializing in infrastructure orchestration. So, I led the product team that designed a self-serve interface from scratch, shrinking a technical 8-hour manual setup down to a 15-minute automated click.",
     highlights: [
-      <>Achieved a <strong>100% successful end-to-end migration program</strong> of 150+ legacy on-premises websites to AWS cloud infrastructure, ensuring business continuity by coordinating cross-functional teams to replace legacy hardware with using c5.large instances, and Amazon RDS</>,
-      <>Established a <strong>zero-downtime delivery framework</strong> for a 150-site fleet by designing and implementing automated CI/CD pipelines, Auto Scaling groups, and Elastic Load Balancing, <strong>reducing deployment time by 40%</strong></>,
-      <>Secured <strong>100% of corporate cloud environments</strong> against external cyber threats by architecting a multi-layered security topology using AWS VPC, custom subnets, and Sucuri firewalls to ensure strict GLBA data privacy and PCI-DSS payment compliance</>,
-      <>Eliminated <strong>20+ hours of weekly manual work</strong> by engineering custom task automation scripts in Bash, transforming complex infrastructure provisioning into repeatable, standardized workflows</>
+      <><strong>Led Engineering and UX/UI teams to build and launch a 0→1 shared services framework and AWS PaaS product in 12 months</strong>, enabling enterprise customers to create cloud infrastructure applications in <strong>&lt;4 hours</strong> through a guided self-service experience.</>,
+      <><strong>Defined product vision, KPIs, PRDs, pricing, and roadmap</strong> through market research, AWS/GCP competitive analysis, customer interviews, and private-preview usage data, focusing the MVP on four AWS service types that covered ~80% of customer demand.</>,
+      <><strong>Grew active customer adoption 20x, from 5 private-preview design partners to ~100 customers</strong>, by prioritizing the highest-value features, removing onboarding friction, and expanding self-service adoption through the AWS Marketplace and customer-led growth.</>,
+      <><strong>Reduced 3-tier AWS deployment time by &gt;95%, from 6–8 hours to 15–20 minutes</strong>, by redesigning the guided provisioning experience to automate resource sequencing and configuration.</>,
+      <><strong>Unblocked ~75% of early-access provisioning attempts</strong> by identifying resource naming as a major onboarding failure, then prioritizing real-time validation and suggestions before customers reached the end of the setup flow.</>,
+      <><strong>Reduced custom engineering effort for partner integrations</strong> by defining reusable API requirements and integration patterns for 1P and 3P integrations with Engineering.</>
     ],
   },
   {
-    company: "Branding Arc",
-    role: "Program Manager - Digital Portfolio & E-Commerce",
-    period: "Mar 2020 - May 2020",
+    company: "Hotelkey",
+    role: "Product Management Intern — Hotelkey",
+    period: "Dec 2017 to May 2018",
+    location: "",
+    type: "",
+    bio: "Cloud-native enterprise resource planning (ERP) platform acting as the central operating system for hotels.. Their software runs the entire hotel backend- handling guest room assignments, housekeeping tasks, credit card bills, and vendor supply ordering. So, I was the product manager intern who reshaped their vendor order-management flows, making it much faster for managers to restock hotel inventory.",
     highlights: [
-      <>Launched <strong>10+ revenue-generating B2B products</strong> for the debt collection and asset management sectors within a single quarter, integrating critical FDCPA and TCPA communication guardrails into the software architecture</>,
-      <>Maintained <strong>100% system availability and compliance</strong> across 150+ enterprise websites by centralizing governance, automated backups, and real-time security checks via Orion ManageWP SaaS</>,
-      <>Streamlined global payment collection capabilities across multiple digital products by engineering secure custom payment portals and integrating Stripe, PayPal, and Razorpay APIs</>,
-      <>Defined and monitored critical technical KPIs, improved core platform search rankings by driving Google Web Vitals scores into the <strong>"Good" range (90+)</strong>; slashed LCP by 40% (under 2.5s), reduced First Input Delay (FID) to &lt;100ms, and eliminated visual instability (0.0 CLS), resulting in a <strong>10% decrease in bounce rate</strong> while structuring user data pipelines to respect CCPA data-deletion (DSAR) requests</>
-    ],
-  },
-  {
-    company: "Convoma X, Digital Marketing Agency",
-    role: "UI/UX Designer",
-    period: "Jun 2018 - Dec 2019",
-    highlights: [
-      <>Managed <strong>50k+ monthly website sessions</strong> for a fashion e-commerce brand, optimizing the platform to capture <strong>12,000 Monthly Active Loyalty Users</strong>. By implementing a rewards and cashback ecosystem, I drove a <strong>4% order conversion rate</strong> among active users, lowered the bounce rate, and maintained a <strong>20% retention rate</strong>. Operating at a <strong>$1.20 USD CAC</strong> and a <strong>$0.83 ARPU</strong>, the strategy consistently generated <strong>$9,960 USD in monthly revenue</strong></>,
-      <>Integrated marketing campaign tools with websites like Mailchimp, Hubspots, Yoast SEO, etc</>,
-      <>Spearheaded SEMrush SEO audits and technical strategy implementations to systematically boost organic search engine discovery and rankings</>,
-      <>Partnered with cross-functional teams to deploy data-backed marketing campaigns via Mailchimp and Google Analytics to maximize visitor retention</>,
-      <>Designed and launched a high-conversion e-commerce platform based on user-need and funnel analysis, driving <strong>1,000+ completed transactions</strong> in the first month and boosting engagement metrics by <strong>20%</strong></>
+      <><strong>Increased customer onboarding by 25% in one quarter</strong> by shaping product strategy across core ERP workflows including purchasing, inventory, and payments, and prioritizing new features based on customer needs.</>,
+      <><strong>Increased monthly active users by 30% in three months</strong> by simplifying customer onboarding through a vendor order-management workflow that consolidated key purchasing activities.</>,
+      <><strong>Increased average monthly meetings by ~10%</strong> by launching a self-service "Create Meeting" capability in the web application.</>,
+      <><strong>Established product planning and delivery processes</strong> by translating UX research into OKRs, epics, user stories, and Jira-ready requirements for Engineering.</>
     ],
   }
 ];
@@ -188,8 +191,14 @@ export default function Resume() {
                       <h4 className="text-xl font-display font-semibold text-text-primary">{role.role}</h4>
                       <span className="font-mono text-xs text-text-tertiary mt-1 md:mt-0">{role.period}</span>
                     </div>
-                    <h5 className="text-[#E86F93] font-medium font-mono text-[19px] uppercase tracking-widest mt-3">{role.company}</h5>
-                    <ul className="list-disc list-inside space-y-1.5 text-text-secondary leading-snug font-light text-[12px] md:text-[13px] mt-2">
+                    <div className="flex flex-col md:flex-row md:items-baseline justify-between mt-3">
+                      <h5 className="text-[#E86F93] font-medium font-mono text-[19px] uppercase tracking-widest">{role.company}</h5>
+                      <span className="text-xs text-text-muted">{role.location}{role.location && role.type ? ' · ' : ''}{role.type}</span>
+                    </div>
+                    {role.bio && (
+                      <p className="text-sm text-text-secondary mt-2 italic">{role.bio}</p>
+                    )}
+                    <ul className="list-disc list-inside space-y-1.5 text-text-secondary leading-snug font-light text-[12px] md:text-[13px] mt-3">
                       {role.highlights.map((highlight, hidx) => (
                         <li key={hidx}>{highlight}</li>
                       ))}
