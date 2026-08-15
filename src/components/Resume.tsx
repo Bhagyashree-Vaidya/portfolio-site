@@ -8,7 +8,7 @@ const roles = [
   {
     company: "University of Washington",
     role: "Graduate Product Developer - Starlink Satellite Data Platform",
-    period: "Mar 2026 - June",
+    period: "Mar 2026 - June 2026",
     location: "Seattle, Washington, United States · Remote",
     type: "Part-time",
     bio: "Bio - A research lab that intercepts raw satellite internet radio signals using a custom rooftop antenna dish. Because space satellites move at insane speeds, their signals get messy. This lab builds software to clean up that data and track individual satellites. So, I built the entire coding pipeline from scratch to turn messy radio waves into neat, computer-labeled satellite tracks.",
@@ -20,9 +20,9 @@ const roles = [
   },
   {
     company: "VWO",
-    role: "Senior Product Manager | US , VWO",
+    role: "Senior Product Manager | Customer Sucess",
     period: "Mar 2025 - Sep 2025",
-    location: "Remote",
+    location: "India, Remote",
     type: "Full-time",
     bio: "Bio - B2B SaaS digital optimization and enterprise split-testing platform serving 3,000+ global brands. So, I ran the product line that added autonomous AI agents to the platform, building the evaluation pipelines that automatically monitored and improved these web tests and server side testing.",
     highlights: [
@@ -35,7 +35,7 @@ const roles = [
   },
   {
     company: "Unity Senior Health",
-    role: "Senior Product Manager, Unity Senior Health",
+    role: "Senior Product Manager",
     period: "Sept 2024 - Mar 2025",
     location: "Florida, United States · Remote",
     type: "Contract",
@@ -50,7 +50,7 @@ const roles = [
   },
   {
     company: "Stallion Express",
-    role: "Senior Product Manager Stallion Express",
+    role: "Senior Product Manager",
     period: "April 2023 - Sep 2024",
     location: "Mississauga, Ontario, Canada · Remote",
     type: "Full-time",
