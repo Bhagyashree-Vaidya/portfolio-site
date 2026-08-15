@@ -60,8 +60,8 @@ const roles = [
       <><strong>Spearheaded a 0-to-1 MVP proposal targeting a $9M cost-reduction opportunity for a native self-service parcel drop-off and label-management workflow across iOS and Android.</strong></>,
       <><strong>Increased first-shipment activation by 22%</strong> by introducing location-based personalization that identified a new user's nearest shipping hub and surfaced relevant shipping options without requiring manual location entry. and supported a total annual shipping volume of 5M+ processed parcels.</>,
       <><strong>Enabled 10+ new Drop &amp; Go locations</strong> across Montreal, Vancouver, and Surrey, supporting 32 regional pricing zones and $1.2M in incremental GMV, by defining requirements for location-specific carrier pricing and partnering with Engineering to replace a single global rate model with reusable regional pricing.</>,
-      <><strong>Minimized payment friction and cross-border FX drop-offs</strong> by leading the technical integration of Stripe and PayPal multi-currency payment gateways; processed $2M+ in monthly transactional credits, allowing US and Canadian merchants to pay in native currency while eliminating a 2.5% foreign exchange transaction penalty.</>,
-      <>Stakeholder Management, User Acceptance Testing and +3 skills</>
+      <><strong>Minimized payment friction and cross-border FX drop-offs</strong> by leading the technical integration of Stripe and PayPal multi-currency payment gateways; processed $2M+ in monthly transactional credits, allowing US and Canadian merchants to pay in native currency while eliminating a 2.5% foreign exchange transaction penalty.</>
+
     ],
   },
   {
