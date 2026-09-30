@@ -25,7 +25,7 @@ export default function Home() {
         {/* Content layer */}
         <div className="col-start-1 row-start-1 w-full z-10">
           <Identity />
-          <Resume />
+          <div style={{ display: "none" }}><Resume /></div>
           <FeaturedProductStories />
           <Education />
           <CareerTimeline />
