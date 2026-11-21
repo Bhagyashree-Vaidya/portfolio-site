@@ -29,7 +29,7 @@ export default function Identity() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-center opacity-25"
         />
       </motion.div>
 
