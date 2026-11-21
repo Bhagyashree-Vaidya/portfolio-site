@@ -51,9 +51,7 @@ export const metadata: Metadata = {
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "XD9QgmkSMGLZNYYi8UgEM62Rs9RpNHE3GOyD28oe-g8",
-    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
-      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
-      : undefined,
+    other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || "FD1BCA40F23BD0870585FB3CCDE467E6" },
   },
   twitter: {
     card: "summary_large_image",
