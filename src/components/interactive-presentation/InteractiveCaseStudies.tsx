@@ -89,9 +89,6 @@ export default function InteractiveCaseStudies() {
                 <div className="w-3 h-3 rounded-full bg-[#E5E5E5]" />
                 <div className="w-3 h-3 rounded-full bg-[#E5E5E5]" />
               </div>
-              <div className="text-xs font-mono text-[#666666] tracking-wider absolute left-1/2 -translate-x-1/2">
-                {activeCaseStudy.name.toLowerCase()}.app
-              </div>
             </div>
 
             {/* Current Slide */}

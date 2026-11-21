@@ -22,18 +22,18 @@ export type CaseStudy = {
 
 export const caseStudiesData: CaseStudy[] = [
   {
-    id: "zomato",
-    name: "Zomato teardown",
-    logo: "🍔",
-    accentColor: "#E23744", // Red
+    id: "staples",
+    name: "Staples teardown",
+    logo: "🖨️",
+    accentColor: "#CC0000",
     slides: [
-      { id: "slide-1", title: "Zomato app notifications teardown, slide 1", imageSrc: "/images/case-studies/pdf2/slide-1.jpg" },
-      { id: "slide-2", title: "Zomato app notifications teardown, slide 2", imageSrc: "/images/case-studies/pdf2/slide-2.jpg" },
-      { id: "slide-3", title: "Zomato app notifications teardown, slide 3", imageSrc: "/images/case-studies/pdf2/slide-3.jpg" },
-      { id: "slide-4", title: "Zomato app notifications teardown, slide 4", imageSrc: "/images/case-studies/pdf2/slide-4.jpg" },
-      { id: "slide-5", title: "Zomato app notifications teardown, slide 5", imageSrc: "/images/case-studies/pdf2/slide-5.jpg" },
-      { id: "slide-6", title: "Zomato app notifications teardown, slide 6", imageSrc: "/images/case-studies/pdf2/slide-6.jpg" },
-      { id: "slide-7", title: "Zomato app notifications teardown, slide 7", imageSrc: "/images/case-studies/pdf2/slide-7.jpg" },
+      { id: "slide-1", title: "Staples omnichannel fulfillment teardown, slide 1", imageSrc: "/images/case-studies/staples/slide-1.jpg" },
+      { id: "slide-2", title: "Staples omnichannel fulfillment teardown, slide 2", imageSrc: "/images/case-studies/staples/slide-2.jpg" },
+      { id: "slide-3", title: "Staples omnichannel fulfillment teardown, slide 3", imageSrc: "/images/case-studies/staples/slide-3.jpg" },
+      { id: "slide-4", title: "Staples omnichannel fulfillment teardown, slide 4", imageSrc: "/images/case-studies/staples/slide-4.jpg" },
+      { id: "slide-5", title: "Staples omnichannel fulfillment teardown, slide 5", imageSrc: "/images/case-studies/staples/slide-5.jpg" },
+      { id: "slide-6", title: "Staples omnichannel fulfillment teardown, slide 6", imageSrc: "/images/case-studies/staples/slide-6.jpg" },
+      { id: "slide-7", title: "Staples omnichannel fulfillment teardown, slide 7", imageSrc: "/images/case-studies/staples/slide-7.jpg" },
     ]
   },
   {
@@ -49,6 +49,21 @@ export const caseStudiesData: CaseStudy[] = [
       { id: "slide-5", title: "Amazon Rufus AI shopping assistant teardown, slide 5", imageSrc: "/images/case-studies/rufus/slide-5.jpg" },
       { id: "slide-6", title: "Amazon Rufus AI shopping assistant teardown, slide 6", imageSrc: "/images/case-studies/rufus/slide-6.jpg" },
       { id: "slide-7", title: "Amazon Rufus AI shopping assistant teardown, slide 7", imageSrc: "/images/case-studies/rufus/slide-7.jpg" },
+    ]
+  },
+  {
+    id: "zomato",
+    name: "Zomato teardown",
+    logo: "🍔",
+    accentColor: "#E23744", // Red
+    slides: [
+      { id: "slide-1", title: "Zomato app notifications teardown, slide 1", imageSrc: "/images/case-studies/pdf2/slide-1.jpg" },
+      { id: "slide-2", title: "Zomato app notifications teardown, slide 2", imageSrc: "/images/case-studies/pdf2/slide-2.jpg" },
+      { id: "slide-3", title: "Zomato app notifications teardown, slide 3", imageSrc: "/images/case-studies/pdf2/slide-3.jpg" },
+      { id: "slide-4", title: "Zomato app notifications teardown, slide 4", imageSrc: "/images/case-studies/pdf2/slide-4.jpg" },
+      { id: "slide-5", title: "Zomato app notifications teardown, slide 5", imageSrc: "/images/case-studies/pdf2/slide-5.jpg" },
+      { id: "slide-6", title: "Zomato app notifications teardown, slide 6", imageSrc: "/images/case-studies/pdf2/slide-6.jpg" },
+      { id: "slide-7", title: "Zomato app notifications teardown, slide 7", imageSrc: "/images/case-studies/pdf2/slide-7.jpg" },
     ]
   }
 ];
