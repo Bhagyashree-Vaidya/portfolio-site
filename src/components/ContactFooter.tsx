@@ -4,8 +4,19 @@ import { PERSON, mailto } from "@/lib/site";
 
 export default function ContactFooter() {
   return (
-    <footer id="contact" className="relative z-10 w-full bg-bg-primary overflow-hidden">
-      <div className="mx-auto w-full max-w-[1320px] px-6 pt-20 pb-10">
+    <footer id="contact" className="relative z-10 w-full overflow-hidden bg-bg-primary">
+      <Image
+        src="/images/footer-landscape.webp"
+        alt=""
+        aria-hidden="true"
+        fill
+        unoptimized
+        loading="lazy"
+        sizes="100vw"
+        className="object-cover object-bottom"
+      />
+      <div className="relative mx-auto w-full max-w-[1320px] px-4 py-16 sm:px-6 md:py-24">
+       <div className="rounded-[28px] bg-white/90 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.18)] backdrop-blur-md sm:p-10">
         <p className="text-sm font-mono uppercase tracking-widest text-text-secondary mb-2">Contact</p>
         <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-text-primary">Get in touch.</h2>
         <p className="mt-4 max-w-[640px] text-base md:text-lg font-light leading-relaxed text-text-primary">
@@ -86,18 +97,8 @@ export default function ContactFooter() {
           </div>
         </nav>
         <p className="mt-8 text-xs text-text-secondary">© 2026 {PERSON.displayName}. Seattle, WA.</p>
+       </div>
       </div>
-      <Image
-        src="/images/footer-landscape.webp"
-        alt=""
-        aria-hidden="true"
-        width={2400}
-        height={1339}
-        unoptimized
-        loading="lazy"
-        sizes="100vw"
-        className="block h-auto w-full"
-      />
     </footer>
   );
 }
