@@ -92,8 +92,8 @@ export default function Identity() {
         >
           <motion.div className="absolute inset-0 will-change-transform" style={{ y: personY, scale: personScale }}>
             <Image
-              src="/images/manager-v2.png"
-              alt="Bhagyashree Vaidya"
+              src="/images/manager.webp"
+              alt="Shree Vaidya, Product Manager, with a speech bubble that reads: I hate seeing customers settle for the wrong product simply because we made the right one too hard to find."
               fill
               priority
               unoptimized

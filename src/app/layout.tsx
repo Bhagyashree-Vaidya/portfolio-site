@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import Cursor from "@/components/Cursor";
 import Navigation from "@/components/Navigation";
+import Analytics from "@/components/Analytics";
 import { META_DESCRIPTION, PERSON, SITE_URL } from "@/lib/site";
 
 const geist = Geist({
@@ -48,6 +49,12 @@ export const metadata: Metadata = {
     firstName: "Bhagyashree",
     lastName: "Vaidya",
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
   twitter: {
     card: "summary_large_image",
     title: "Shree Vaidya | Senior Product Manager, AI & Search",
@@ -73,6 +80,7 @@ export default function RootLayout({
         <SmoothScrolling>
           {children}
         </SmoothScrolling>
+        <Analytics />
       </body>
     </html>
   );

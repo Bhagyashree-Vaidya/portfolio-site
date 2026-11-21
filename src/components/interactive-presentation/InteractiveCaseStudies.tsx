@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { readableOn } from "@/lib/color";
 import { caseStudiesData, CaseStudy, Slide } from "./caseStudiesData";
 
 export default function InteractiveCaseStudies() {
@@ -139,10 +140,7 @@ export default function InteractiveCaseStudies() {
             {/* 7. Page Navigator */}
             <div className="bg-white/40 backdrop-blur-md rounded-[24px] p-6 border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.04)] shrink-0">
               <h3 className="text-xs font-mono uppercase tracking-widest text-[#666666] mb-4">On this page</h3>
-              <ul className="flex flex-col gap-1 relative">
-                <div 
-                  className="absolute left-0 top-0 bottom-0 w-[2px] bg-black/5 rounded-full" 
-                />
+              <ul className="flex flex-col gap-1 relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-black/5 before:rounded-full">
                 
                 {activeCaseStudy.slides.map((slide, idx) => {
                   const isActive = idx === activeSlideIndex;
@@ -163,7 +161,7 @@ export default function InteractiveCaseStudies() {
                         }`}
                         style={{
                           backgroundColor: isActive ? `${accentColor}10` : 'transparent',
-                          color: isActive ? accentColor : undefined
+                          color: isActive ? readableOn(accentColor, "#FFFFFF", 5.2) : undefined
                         }}
                       >
                         <span className="text-xs font-mono opacity-50">
@@ -294,7 +292,7 @@ export default function InteractiveCaseStudies() {
                   {slide.imageSrc ? (
                     <Image
                       src={slide.imageSrc}
-                      alt={slide.title}
+                      alt=""
                       fill
                       className="object-cover"
                       unoptimized

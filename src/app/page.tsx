@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 import Resume from "@/components/Resume";
+import ExpertiseHub from "@/components/ExpertiseHub";
 import TreeStory from "@/components/TreeStory";
 
 const FeaturedProductStories = dynamic(() => import("@/components/FeaturedProductStories"), { ssr: true });
@@ -36,6 +37,7 @@ export default function Home() {
         <div className="col-start-1 row-start-1 w-full min-w-0 z-10">
           <Identity />
           <Resume />
+          <ExpertiseHub />
           <FeaturedProductStories />
           <Education />
           <CareerTimeline />

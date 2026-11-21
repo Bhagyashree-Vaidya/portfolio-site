@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { jsonLdString, pageJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Confirmation Bias in LLM-Based AI Analytics Tools (Research)",
+  title: "Confirmation Bias in LLM Analytics Tools",
   description:
     "Shree Vaidya's June 2026 mixed-methods study of how LLM analytics tools can reinforce managers' existing beliefs, and a validation step that reduced it.",
   alternates: { canonical: "/research/confirmation-bias-ai" },
