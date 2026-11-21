@@ -7,7 +7,7 @@ import { useEffect } from "react";
 // Conversion events tracked: contact_email, resume_request / resume_download,
 // linkedin_click, github_click, outbound_click. Each carries the page path and
 // the link's on-page placement (data-placement or nearest section id).
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-05VQGLHBFH";
 
 type Gtag = (...args: unknown[]) => void;
 

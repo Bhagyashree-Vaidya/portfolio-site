@@ -44,7 +44,7 @@ export default function PAMAPage() {
                 FUNDED PROJECT
               </span>
               <span className="px-3.5 py-1 text-xs font-mono font-bold border border-[#F0AFC0] text-[#E86F93] rounded-full bg-white/50 backdrop-blur-sm">
-                UW iSchool Grant — $500
+                UW iSchool Grant: $500
               </span>
               <span className="px-3.5 py-1 text-xs font-mono font-bold border border-[#F0AFC0] text-[#E86F93] rounded-full bg-white/50 backdrop-blur-sm">
                 Spring 2026
@@ -103,7 +103,7 @@ export default function PAMAPage() {
                 <p className="text-text-muted font-mono text-xs uppercase tracking-widest mb-4">Adults 35–55</p>
                 <p className="text-text-secondary font-light leading-relaxed">
                   Want to preserve a loved one's full story before it fades.
-                  They're the organizers — gathering siblings, parents, friends
+                  They're the organizers, gathering siblings, parents, friends
                   to contribute what they remember.
                 </p>
               </div>
@@ -124,9 +124,9 @@ export default function PAMAPage() {
             <h2 className="text-3xl font-display font-bold mb-8 text-text-primary">The Solution</h2>
             <div className="space-y-8">
               {[
-                { title: "Create a Shared Story Page", desc: "A family creates a dedicated page for a loved one — a single place for their complete life story." },
-                { title: "Invite Contributors", desc: "Siblings, friends, colleagues — everyone who holds a piece of the story gets invited to contribute memories, photos, and anecdotes in their own words." },
-                { title: "AI Organizes Everything", desc: "PAMA's AI organizes every contribution chronologically and thematically into a cohesive, lasting biography — preserved forever." }
+                { title: "Create a Shared Story Page", desc: "A family creates a dedicated page for a loved one, a single place for their complete life story." },
+                { title: "Invite Contributors", desc: "Siblings, friends, colleagues, everyone who holds a piece of the story gets invited to contribute memories, photos, and anecdotes in their own words." },
+                { title: "AI Organizes Everything", desc: "PAMA's AI organizes every contribution chronologically and thematically into a cohesive, lasting biography, preserved forever." }
               ].map((step, idx) => (
                 <div key={idx} className="flex gap-6 items-start group">
                   <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-[#FFF1EA] to-[#FFDCE5] border border-[#F0AFC0]/60 text-[#E86F93] font-display font-bold flex items-center justify-center text-xl shadow-sm group-hover:scale-110 transition-transform">

@@ -21,7 +21,7 @@ const findings = [
     number: "3",
     headline: "The Validation Vacuum",
     stat: "34% reduction",
-    detail: "Moving from no validation process to a formal one cut blind acceptance by 34% — the single highest-ROI action in the dataset.",
+    detail: "Moving from no validation process to a formal one cut blind acceptance by 34%, the single highest-ROI action in the dataset.",
   },
   {
     number: "4",
@@ -39,10 +39,10 @@ const findings = [
 
 const recommendations = [
   "Human-in-the-loop review for high-impact AI-assisted decisions",
-  "Source-data validation before acting on AI insights — the 34% fix",
+  "Source-data validation before acting on AI insights, the 34% fix",
   "Bias-awareness training as part of AI onboarding, not optional",
   "Approved-tool governance policy at the org level",
-  "Structured peer review + quarterly post-decision audits — governance decays as fast as models do",
+  "Structured peer review + quarterly post-decision audits, governance decays as fast as models do",
 ];
 
 const tags = [
@@ -116,7 +116,7 @@ export default function ConfirmationBiasPage() {
             </h1>
             <p className="text-2xl text-text-secondary font-light leading-relaxed mb-8">
               Mixed-methods study revealing how LLM-based analytics tools
-              quietly confirm what managers already believe — and what actually
+              quietly confirm what managers already believe, and what actually
               fixes it.
             </p>
             <a
@@ -144,7 +144,7 @@ export default function ConfirmationBiasPage() {
                   <div className="w-3.5 h-3.5 rounded-full bg-green-400" />
                 </div>
                 <span className="text-xs text-text-muted font-mono ml-4 uppercase tracking-widest">
-                  Animated Research Poster — GSAP + CSS Grid + SVG
+                  Animated Research Poster, GSAP + CSS Grid + SVG
                 </span>
               </div>
               {/* Video is attached once the browser is idle so it doesn't compete
@@ -182,7 +182,7 @@ export default function ConfirmationBiasPage() {
               </p>
               <p>
                 This study investigated confirmation bias in LLM-based analytics
-                tools used by managers at mid-to-large tech companies — and
+                tools used by managers at mid-to-large tech companies, and
                 found that the common fix (telling people to "trust AI
                 less") explains less than 4% of the problem.
               </p>
@@ -201,8 +201,8 @@ export default function ConfirmationBiasPage() {
               Managers increasingly rely on LLM-based platforms to interpret
               business data. The way these tools generate text creates a subtle
               but measurable risk: the AI quietly confirms what the user already
-              believes. The standard mitigation — a diverse team to challenge
-              interpretations — isn't realistic for teams of one or two.
+              believes. The standard mitigation, a diverse team to challenge
+              interpretations, isn't realistic for teams of one or two.
             </p>
             <div className="p-8 rounded-[2rem] bg-gradient-to-br from-[#FFF1EA] to-[#FFDCE5] border-l-[6px] border-[#E86F93] shadow-sm relative overflow-hidden">
                <div className="absolute inset-0 bg-white/20 backdrop-blur-sm"></div>
@@ -229,7 +229,7 @@ export default function ConfirmationBiasPage() {
             <h2 className="text-3xl font-display font-bold mb-8 text-text-primary">Methods</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { label: "Approach", value: "Mixed methods — quantitative + qualitative" },
+                { label: "Approach", value: "Mixed methods, quantitative + qualitative" },
                 { label: "Surveys", value: "29 participants, 24 variables" },
                 { label: "Statistical analysis", value: "Pearson's r, Python" },
                 { label: "Interviews", value: "6 in-depth interviews" },
@@ -303,7 +303,7 @@ export default function ConfirmationBiasPage() {
             <h2 className="text-3xl font-display font-bold mb-6 text-text-primary">What I Built</h2>
             <p className="text-lg text-text-secondary font-light leading-relaxed">
               An animated research poster translating all findings into a visual
-              format for non-academic audiences — built with GSAP, CSS Grid, and
+              format for non-academic audiences, built with GSAP, CSS Grid, and
               inline SVG. Designed for screen-recording and LinkedIn
               distribution.
             </p>

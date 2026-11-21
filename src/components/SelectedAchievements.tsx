@@ -7,7 +7,7 @@ import Section from "./Section";
 const achievements = [
   {
     type: "Grant",
-    title: "PAMA — AI-Powered Biography Platform",
+    title: "PAMA: AI-Powered Biography Platform",
     org: "UW iSchool Startup Grant",
     detail: "Spring 2026 · Health & Wellness Category · $500",
     description: "Co-founded a collaborative, AI-powered biography platform. Families create a shared story page, invite contributors, and the AI organizes memories into a cohesive life story. Awarded as one of eight projects in the Spring 2026 cohort.",
@@ -18,7 +18,7 @@ const achievements = [
     title: "Confirmation Bias in LLM-Based AI Analytics Tools",
     org: "IMT 570 E · Data Driven Organizational Problem Solving",
     detail: "June 2026",
-    description: "Mixed-methods study revealing how LLM-based analytics tools quietly confirm what managers already believe — and what actually fixes it.",
+    description: "Mixed-methods study revealing how LLM-based analytics tools quietly confirm what managers already believe, and what actually fixes it.",
     metrics: [
       { value: "R² = 0.039", label: "Trust → Quality" },
       { value: "r = -0.47", label: "Bias Awareness" },

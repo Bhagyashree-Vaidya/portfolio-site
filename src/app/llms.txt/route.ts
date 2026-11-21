@@ -1,10 +1,11 @@
 import { CASE_STUDIES, EXPERTISE, INSIGHTS, docPath } from "@/content/registry";
 import type { Doc } from "@/content/types";
 import { PERSON, SHORT_BIO, SITE_URL } from "@/lib/site";
+import { postPath, publishedPosts } from "@/content/blog";
 
 // Experimental llms.txt (https://llmstxt.org): a plain-text map of the site for
 // AI tools. Not a ranking factor; crawlable HTML remains the source of truth.
-export const dynamic = "force-static";
+export const revalidate = 3600;
 
 const line = (d: Doc) => `- [${d.title}](${SITE_URL}${docPath(d)}): ${d.description}`;
 
@@ -32,6 +33,9 @@ ${EXPERTISE.map(line).join("\n")}
 
 ## Insights
 ${INSIGHTS.map(line).join("\n")}
+
+## Blog (latest)
+${publishedPosts().slice(0, 30).map((p) => `- [${p.title}](${SITE_URL}${postPath(p)}): ${p.description}`).join("\n") || "- First posts coming soon."}
 
 ## Research and projects
 - [Confirmation Bias in LLM-Based AI Analytics Tools](${SITE_URL}/research/confirmation-bias-ai): June 2026 study.

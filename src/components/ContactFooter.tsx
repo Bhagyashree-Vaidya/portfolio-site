@@ -56,6 +56,7 @@ export default function ContactFooter() {
             <ul className="space-y-1">
               <li><Link href="/case-studies" className="hover:text-[#9C2F55]">Case studies</Link></li>
               <li><Link href="/#resume" className="hover:text-[#9C2F55]">Experience</Link></li>
+              <li><Link href="/resume" className="hover:text-[#9C2F55]">Résumé (text)</Link></li>
               <li><Link href="/projects/pama" className="hover:text-[#9C2F55]">PAMA project</Link></li>
             </ul>
           </div>
@@ -71,6 +72,8 @@ export default function ContactFooter() {
             <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-secondary">Writing</p>
             <ul className="space-y-1">
               <li><Link href="/insights" className="hover:text-[#9C2F55]">Insights</Link></li>
+              <li><Link href="/blog" className="hover:text-[#9C2F55]">Blog</Link></li>
+              <li><Link href="/teardowns" className="hover:text-[#9C2F55]">Product teardowns</Link></li>
               <li><Link href="/research/confirmation-bias-ai" className="hover:text-[#9C2F55]">Research</Link></li>
             </ul>
           </div>

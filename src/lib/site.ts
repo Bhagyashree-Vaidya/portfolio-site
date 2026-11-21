@@ -18,7 +18,7 @@ export const PERSON = {
 };
 
 export const SHORT_BIO =
-  "Bhagyashree (Shree) Vaidya is a Seattle-based Senior Product Manager who has worked in product since 2016 across e-commerce, cross-border shipping, Medicare insurance and B2B SaaS. At VWO she owned Wingz, an agentic AI product for A/B testing. Her work focuses on search, ranking, personalization and AI evaluation. She holds an M.S. in Information Management from the University of Washington and is PMP certified.";
+  "Bhagyashree (Shree) Vaidya is a Seattle-based Senior Product Manager with 8+ years in product across e-commerce, cross-border shipping, Medicare insurance and B2B SaaS. At VWO she owned Wingz, an agentic AI product for A/B testing. Her work focuses on search, ranking, personalization and AI evaluation. She holds an M.S. in Information Management from the University of Washington and is PMP certified.";
 
 export const META_DESCRIPTION =
   "Shree Vaidya is a Seattle Senior Product Manager building AI agents, search and personalization for e-commerce. UW MS '26, PMP.";
@@ -73,6 +73,12 @@ export function personJsonLd() {
         recognizedBy: { "@type": "Organization", name: "Project Management Institute" },
       },
     ],
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Senior Product Manager",
+      occupationLocation: { "@type": "City", name: "Seattle, WA" },
+      skills: "Search and ranking, personalization, agentic AI, LLM evaluation, A/B testing, e-commerce, SQL, Python",
+    },
     knowsAbout: [
       "Product management",
       "Search relevance",
