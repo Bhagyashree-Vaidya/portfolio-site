@@ -2,255 +2,111 @@
 
 import Image from "next/image";
 import {
-  AnimatePresence,
   motion,
   useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
+  type MotionValue,
 } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-type TreeStoryItem = {
-  sectionId: string;
-  src: string | null;
-  alt?: string;
-  rightInsetClass?: string;
-  hue?: number;
-  saturation?: number;
-  brightness?: number;
-};
-
-const trees: TreeStoryItem[] = [
-  {
-    sectionId: "hero",
-    src: null,
-  },
-  {
-    sectionId: "identity",
-    src: "/images/tree-story/tree-stage-1.webp",
-    alt: "Paper-cut tree in its about state",
-    rightInsetClass: "-translate-x-[10%]",
-  },
-  {
-    sectionId: "resume",
-    src: "/images/tree-story/tree-stage-2.webp",
-    alt: "Paper-cut tree in its resume state",
-  },
-  {
-    sectionId: "work",
-    src: "/images/tree-story/tree-stage-3.webp",
-    alt: "Paper-cut tree in its projects state",
-  },
-  {
-    sectionId: "education",
-    src: "/images/tree-story/tree-stage-4.webp",
-    alt: "Paper-cut tree in its education state",
-  },
-  {
-    sectionId: "timeline",
-    src: "/images/tree-story/tree-stage-5.webp",
-    alt: "Paper-cut tree in its timeline state",
-  },
-  {
-    sectionId: "case-studies",
-    src: "/images/tree-story/tree-stage-5.webp",
-    alt: "Paper-cut tree in its case studies state",
-  },
-  {
-    sectionId: "evidence",
-    src: "/images/tree-story/tree-stage-6.webp",
-    alt: "Paper-cut tree in its recommendation state",
-  },
-  {
-    sectionId: "achievements",
-    src: "/images/tree-story/tree-stage-6.webp",
-    alt: "Paper-cut tree in its final state",
-  },
-  {
-    sectionId: "contact",
-    src: null,
-  },
+// The tree's life story: bare, green, blossoming pink, fading, falling.
+// Stages are tied to scroll position (not to sections), so the journey is
+// always in order and each stage dissolves smoothly into the next.
+const stages = [
+  { src: "/images/tree-story/tree-stage-1.webp", alt: "Bare paper-cut tree" },
+  { src: "/images/tree-story/tree-stage-2.webp", alt: "Paper-cut tree with green leaves" },
+  { src: "/images/tree-story/tree-stage-3.webp", alt: "Paper-cut tree in full green" },
+  { src: "/images/tree-story/tree-stage-4.webp", alt: "Paper-cut tree turning pink" },
+  { src: "/images/tree-story/tree-stage-5.webp", alt: "Paper-cut tree with pink blossoms fading" },
+  { src: "/images/tree-story/tree-stage-6.webp", alt: "Paper-cut tree with leaves falling" },
 ];
 
-function SectionObserver({
-  items,
-  onActiveChange,
-}: {
-  items: TreeStoryItem[];
-  onActiveChange: (item: TreeStoryItem | null) => void;
-}) {
-  const visibleRatios = useRef(new Map<string, number>());
+const LAST = stages.length - 1;
+// Fraction of each step spent cross-fading; the rest holds still.
+const FADE = 0.45;
 
-  useEffect(() => {
-    const elements = items
-      .map((item) => ({
-        item,
-        element: document.getElementById(item.sectionId),
-      }))
-      .filter(
-        (entry): entry is { item: TreeStoryItem; element: HTMLElement } =>
-          Boolean(entry.element),
-      );
+const smooth = (t: number) => {
+  const c = Math.min(1, Math.max(0, t));
+  return c * c * (3 - 2 * c);
+};
 
-    if (!elements.length) {
-      return;
-    }
+// How "arrived" stage i is, given continuous progress s in [0, LAST].
+const arrive = (s: number, i: number) => {
+  if (i === 0) return 1;
+  const start = i - 1 + (1 - FADE) / 2;
+  return smooth((s - start) / FADE);
+};
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const sectionId = entry.target.id;
-          visibleRatios.current.set(
-            sectionId,
-            entry.isIntersecting ? entry.intersectionRatio : 0,
-          );
-        });
-
-        const activeId = [...visibleRatios.current.entries()].sort(
-          (a, b) => b[1] - a[1],
-        )[0];
-
-        if (!activeId || activeId[1] === 0) {
-          onActiveChange(null);
-          return;
-        }
-
-        const activeItem = elements.find(({ item }) => item.sectionId === activeId[0])
-          ?.item;
-
-        onActiveChange(activeItem?.src ? activeItem : null);
-      },
-      {
-        root: null,
-        rootMargin: "-42% 0px -42% 0px",
-        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1],
-      },
-    );
-
-    elements.forEach(({ element }) => observer.observe(element));
-
-    return () => observer.disconnect();
-  }, [items, onActiveChange]);
-
-  return null;
-}
-
-function TreeImage({ item }: { item: TreeStoryItem | null }) {
-  const shouldReduceMotion = useReducedMotion();
-  const colorFilter = (tree: TreeStoryItem, saturationBoost = 1, brightnessBoost = 1) =>
-    `hue-rotate(${tree.hue ?? 0}deg) saturate(${(tree.saturation ?? 1) * saturationBoost}) brightness(${(tree.brightness ?? 1) * brightnessBoost})`;
-
-  // Deduplicate by src and filter out nulls to avoid duplicate keys and empty src errors
-  const uniqueTrees = Array.from(
-    new Map(trees.filter(t => t.src).map(t => [t.src, t])).values()
-  );
-
+function Stage({ index, progress }: { index: number; progress: MotionValue<number> }) {
+  // Fade in over the previous stage, then fade out only once the
+  // next-but-one stage is arriving, so the visible tree is never see-through.
+  const opacity = useTransform(progress, (s) => {
+    const fadeIn = arrive(s, index);
+    const fadeOut = index + 2 <= LAST ? 1 - arrive(s, index + 2) : 1;
+    return Math.min(fadeIn, fadeOut);
+  });
+  const stage = stages[index];
   return (
-    <div className="grid h-[min(34vw,300px)] w-[min(68vw,560px)] min-h-[170px] min-w-[280px] translate-x-px translate-y-px place-items-end md:h-[min(22vw,330px)] md:w-[min(40vw,640px)] lg:h-[min(18vw,350px)] lg:w-[min(34vw,680px)]">
-      {uniqueTrees.map((tree) => {
-        const isActive = item?.src === tree.src;
-        return (
-          <motion.div
-            key={tree.src!}
-            className={`relative col-start-1 row-start-1 h-full w-full will-change-[opacity,filter] ${tree.rightInsetClass ?? ""} ${isActive ? "z-10 pointer-events-auto" : "z-0 pointer-events-none"}`}
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: isActive ? 1 : 0,
-              // Only the visible tree "breathes"; hidden ones stay static (saves main-thread work).
-              filter: shouldReduceMotion || !isActive
-                ? colorFilter(tree)
-                : [
-                    colorFilter(tree),
-                    colorFilter(tree, 1.04, 1.025),
-                    colorFilter(tree, 0.98, 0.995),
-                    colorFilter(tree),
-                  ],
-            }}
-            transition={{
-              opacity: {
-                duration: shouldReduceMotion ? 0.2 : 0.6,
-                ease: "easeInOut",
-              },
-              filter: {
-                duration: 5.5,
-                ease: "easeInOut",
-                repeat: shouldReduceMotion || !isActive ? 0 : Infinity,
-              },
-            }}
-          >
-            <Image
-              src={tree.src!}
-              alt={tree.alt ?? ""}
-              fill
-              unoptimized
-              sizes="(min-width: 1024px) 34vw, (min-width: 768px) 40vw, 68vw"
-              className="select-none object-contain object-bottom-right"
-            />
-          </motion.div>
-        );
-      })}
-    </div>
+    <motion.div
+      className="relative col-start-1 row-start-1 h-full w-full will-change-[opacity]"
+      style={{ opacity, zIndex: index }}
+    >
+      <Image
+        src={stage.src}
+        alt={stage.alt}
+        fill
+        unoptimized
+        sizes="(min-width: 1024px) 34vw, (min-width: 768px) 40vw, 68vw"
+        className="select-none object-contain object-bottom-right"
+      />
+    </motion.div>
   );
 }
 
-function FixedTreeContainer({ children }: { children: React.ReactNode }) {
-  const shouldReduceMotion = useReducedMotion();
+function Tree() {
+  const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll();
-  const x = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [0, -18]);
-  const y = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [0, -34]);
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    shouldReduceMotion ? [1, 1, 1] : [0.99, 1.02, 1],
-  );
+  // A spring softens fast flicks of the scroll wheel into a cinematic glide.
+  const eased = useSpring(scrollYProgress, reduce ? { duration: 0 } : { stiffness: 60, damping: 22, mass: 0.6 });
+  // No tree over the opening hero or the closing footer.
+  const progress = useTransform(eased, [0.05, 0.9], [0, LAST], { clamp: true });
+  const presence = useTransform(eased, [0.02, 0.07, 0.94, 0.99], [0, 1, 1, 0]);
+  const x = useTransform(eased, [0, 1], reduce ? [0, 0] : [0, -18]);
+  const y = useTransform(eased, [0, 1], reduce ? [0, 0] : [0, -34]);
 
   return (
     <motion.div
       className="absolute bottom-0 right-0 z-0 pointer-events-none flex items-end justify-end overflow-visible will-change-transform"
-      style={{ x, y, scale }}
+      style={{ x, y, opacity: presence }}
     >
-      {children}
+      <div className="grid h-[min(34vw,300px)] w-[min(68vw,560px)] min-h-[170px] min-w-[280px] place-items-end md:h-[min(22vw,330px)] md:w-[min(40vw,640px)] lg:h-[min(18vw,350px)] lg:w-[min(34vw,680px)]">
+        {stages.map((s, i) => (
+          <Stage key={s.src} index={i} progress={progress} />
+        ))}
+      </div>
     </motion.div>
   );
 }
 
 export default function TreeStory() {
-  const items = useMemo(() => trees, []);
-  const [activeTree, setActiveTree] = useState<TreeStoryItem | null>(null);
   const [mounted, setMounted] = useState(false);
 
-  // The first section shows no tree, so mount (and preload images) only once
-  // the browser is idle. This keeps the tree off the critical rendering path.
+  // The hero shows no tree, so mount and preload only once the browser is idle.
   useEffect(() => {
     const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
+    const go = () => {
+      stages.forEach((s) => { const img = new window.Image(); img.src = s.src; });
+      setMounted(true);
+    };
     if (w.requestIdleCallback) {
-      const id = w.requestIdleCallback(() => setMounted(true), { timeout: 2500 });
+      const id = w.requestIdleCallback(go, { timeout: 2500 });
       return () => w.cancelIdleCallback?.(id);
     }
-    const t = window.setTimeout(() => setMounted(true), 1200);
+    const t = window.setTimeout(go, 1200);
     return () => window.clearTimeout(t);
   }, []);
 
-  useEffect(() => {
-    if (!mounted) return;
-    items.forEach((item) => {
-      if (!item.src) {
-        return;
-      }
-
-      const image = new window.Image();
-      image.src = item.src;
-    });
-  }, [items, mounted]);
-
-  if (!mounted) return null;
-
-  return (
-    <>
-      <SectionObserver items={items} onActiveChange={setActiveTree} />
-      <FixedTreeContainer>
-        <TreeImage item={activeTree} />
-      </FixedTreeContainer>
-    </>
-  );
+  return mounted ? <Tree /> : null;
 }
