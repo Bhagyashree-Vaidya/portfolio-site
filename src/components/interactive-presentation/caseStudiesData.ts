@@ -37,17 +37,6 @@ export const caseStudiesData: CaseStudy[] = [
     ]
   },
   {
-    id: "amazon",
-    name: "Amazon teardown",
-    logo: "📦",
-    accentColor: "#D69E2E", // Orange/Yellow
-    slides: [
-      { id: "slide-1", title: "Amazon product reviews teardown, slide 1", imageSrc: "/images/case-studies/pdf3/slide-1.jpg" },
-      { id: "slide-2", title: "Amazon product reviews teardown, slide 2", imageSrc: "/images/case-studies/pdf3/slide-2.jpg" },
-      { id: "slide-3", title: "Amazon product reviews teardown, slide 3", imageSrc: "/images/case-studies/pdf3/slide-3.jpg" },
-    ]
-  },
-  {
     id: "rufus",
     name: "Rufus teardown",
     logo: "💬",
