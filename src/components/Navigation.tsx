@@ -8,9 +8,19 @@ import { PERSON } from "@/lib/site";
 
 const cursiveFont = Great_Vibes({ weight: "400", subsets: ["latin"] });
 
-const navItems = [
+type NavItem = { name: string; href: string; children?: { name: string; href: string; note: string }[] };
+
+const navItems: NavItem[] = [
   { name: "About", href: "/#identity" },
-  { name: "Insights", href: "/insights" },
+  { name: "Teardowns", href: "/teardowns" },
+  {
+    name: "Product 101",
+    href: "/insights",
+    children: [
+      { name: "Insights", href: "/insights", note: "Practical PM guides" },
+      { name: "Research", href: "/research/confirmation-bias-ai", note: "Confirmation bias in AI analytics" },
+    ],
+  },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/#contact" },
 ];
@@ -35,7 +45,7 @@ export default function Navigation() {
       }`}
     >
       <div 
-        className={`relative flex items-center justify-between gap-8 px-6 md:px-8 transition-all duration-700 ease-out-expo overflow-hidden ${
+        className={`relative flex items-center justify-between gap-8 px-6 md:px-8 transition-all duration-700 ease-out-expo ${
           scrolled 
             ? "w-[95%] lg:w-auto lg:min-w-[820px] py-3 bg-white/75 backdrop-blur-xl border border-[#F0AFC0]/45 rounded-full shadow-[0_14px_40px_rgba(232,111,147,0.12)]"
             : "w-full max-w-[1320px] py-3 bg-transparent border-transparent rounded-none"
@@ -46,15 +56,40 @@ export default function Navigation() {
         </Link>
 
         <nav aria-label="Main" className="hidden lg:flex items-center gap-6">
-          {navItems.map((item) => (
-            <Link 
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-text-secondary hover:text-[#E86F93] transition-colors duration-300 whitespace-nowrap"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.children ? (
+              <div key={item.name} className="group relative">
+                <button
+                  type="button"
+                  aria-haspopup="true"
+                  className="flex items-center gap-1 text-sm font-medium text-text-secondary transition-colors duration-300 whitespace-nowrap hover:text-[#E86F93] group-focus-within:text-[#E86F93]"
+                >
+                  {item.name}
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180"><path d="M6 9l6 6 6-6" /></svg>
+                </button>
+                <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <ul className="w-64 rounded-2xl border border-[#F0AFC0]/45 bg-white/95 p-2 shadow-[0_14px_40px_rgba(232,111,147,0.15)] backdrop-blur-xl">
+                    {item.children.map((c) => (
+                      <li key={c.name}>
+                        <Link href={c.href} className="block rounded-xl px-3 py-2.5 hover:bg-[#FFF1EA]">
+                          <span className="block text-sm font-medium text-text-primary">{c.name}</span>
+                          <span className="block text-xs text-text-secondary">{c.note}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium text-text-secondary hover:text-[#E86F93] transition-colors duration-300 whitespace-nowrap"
+              >
+                {item.name}
+              </Link>
+            ),
+          )}
           <a
             href={PERSON.linkedin}
             target="_blank"
@@ -80,14 +115,16 @@ export default function Navigation() {
           <div className="w-5 h-0.5 bg-[#9C2F55] rounded-full"></div>
         </button>
 
-        {/* Progress Bar (visible only when scrolled) */}
-        <motion.div 
-          className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#FFD6C8] to-[#E86F93]"
-          style={{ width: "100%", scaleX: scrollYProgress, transformOrigin: "left" }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: scrolled ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-        />
+        {/* Progress Bar (visible only when scrolled), clipped to the pill shape */}
+        <div className={`pointer-events-none absolute inset-0 overflow-hidden ${scrolled ? "rounded-full" : ""}`}>
+          <motion.div
+            className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#FFD6C8] to-[#E86F93]"
+            style={{ width: "100%", scaleX: scrollYProgress, transformOrigin: "left" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: scrolled ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+          />
+        </div>
       </div>
       {menuOpen && (
         <nav
@@ -96,17 +133,32 @@ export default function Navigation() {
           className="absolute top-full mt-2 w-[95%] rounded-2xl border border-[#F0AFC0]/45 bg-white/95 p-4 shadow-lg backdrop-blur-xl lg:hidden"
         >
           <ul className="flex flex-col">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <Link
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-base font-medium text-text-primary hover:bg-[#FFF1EA]"
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
+            {navItems.map((item) =>
+              item.children ? (
+                <li key={item.name}>
+                  <p className="px-3 pt-3 pb-1 font-mono text-[11px] uppercase tracking-widest text-text-secondary">{item.name}</p>
+                  <ul>
+                    {item.children.map((c) => (
+                      <li key={c.name}>
+                        <Link href={c.href} onClick={() => setMenuOpen(false)} className="block rounded-lg px-6 py-2.5 text-base font-medium text-text-primary hover:bg-[#FFF1EA]">
+                          {c.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block rounded-lg px-3 py-3 text-base font-medium text-text-primary hover:bg-[#FFF1EA]"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ),
+            )}
             <li>
               <a href={PERSON.linkedin} target="_blank" rel="noopener noreferrer" className="block rounded-lg px-3 py-3 text-base font-medium text-text-primary hover:bg-[#FFF1EA]">
                 LinkedIn

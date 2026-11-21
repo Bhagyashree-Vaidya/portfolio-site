@@ -45,7 +45,7 @@ export function FooterCard() {
                 <p className="mb-1.5 font-mono text-[11px] uppercase tracking-widest text-text-secondary">Work</p>
                 <ul className="space-y-1">
                   <li><Link href="/#resume" className={linkCls}>Experience</Link></li>
-                  <li><Link href="/case-studies" className={linkCls}>Case studies</Link></li>
+                  <li><Link href="/#teardown-staples" className={linkCls}>Case studies</Link></li>
                   <li><Link href="/resume" className={linkCls}>Résumé (text)</Link></li>
                   <li><Link href="/projects/pama" className={linkCls}>PAMA project</Link></li>
                 </ul>
