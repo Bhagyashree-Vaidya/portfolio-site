@@ -19,6 +19,8 @@ const navItems: NavItem[] = [
     children: [
       { name: "Insights", href: "/insights", note: "Practical PM guides" },
       { name: "Search", href: "/expertise/search-product-management", note: "Search, ranking and relevance" },
+      // TODO: swap "#" for the Udemy course URL once it is published.
+      { name: "Udemy course", href: "#", note: "Coming soon" },
     ],
   },
   { name: "Blog", href: "/blog" },
