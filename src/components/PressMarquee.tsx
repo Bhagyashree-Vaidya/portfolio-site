@@ -2,18 +2,18 @@
 // pauses on hover and stays still for people who prefer reduced motion.
 const items = [
   {
-    label: "Receivables Info",
-    title: "The Dark Data Goldmine Hiding Inside Debt Collection Operations",
+    label: "Article",
+    title: "Turning hidden customer data into conversions",
     href: "https://receivablesinfo.com/2026/07/28/dark-data-goldmine-debt-collection-operations-ai/",
   },
   {
-    label: "Receivables Info",
-    title: "Governance Problem in Debt Collection AI",
+    label: "Article",
+    title: "The governance problem in AI agents",
     href: "https://receivablesinfo.com/2026/08/19/ai-governance-debt-collection-multi-agent-compliance/",
   },
   {
-    label: "Receivables Info",
-    title: "From Dark Data to Organizational Intelligence",
+    label: "Article",
+    title: "From dark data to organizational intelligence",
     href: "https://receivablesinfo.com/2026/08/19/building-organizational-intelligence-dark-data-debt-collection/",
   },
   { label: "Podcast", title: "Coming soon", href: null },
@@ -49,7 +49,7 @@ export default function PressMarquee() {
   return (
     <section aria-label="Published writing and upcoming podcast" className="relative z-10 w-full border-y border-[#F0AFC0]/50 bg-white/80 py-3 backdrop-blur-sm">
       <div className="group flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
-        <p className="sr-only">As featured in Receivables Info. Podcast coming soon.</p>
+        <p className="sr-only">Published articles on AI, data and conversion. Podcast coming soon.</p>
         <div className="flex animate-[marquee_40s_linear_infinite] group-hover:[animation-play-state:paused] motion-reduce:animate-none">
           <Row />
           <Row hidden />
