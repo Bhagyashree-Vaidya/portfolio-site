@@ -8,7 +8,7 @@ import { PERSON } from "@/lib/site";
 
 const cursiveFont = Great_Vibes({ weight: "400", subsets: ["latin"] });
 
-type NavItem = { name: string; href: string; children?: { name: string; href: string; note: string }[] };
+type NavItem = { name: string; href: string; children?: { name: string; href: string; note: string; highlight?: boolean }[] };
 
 const navItems: NavItem[] = [
   { name: "About", href: "/#identity" },
@@ -20,7 +20,7 @@ const navItems: NavItem[] = [
       { name: "Insights", href: "/insights", note: "Practical PM guides" },
       { name: "Search", href: "/expertise/search-product-management", note: "Search, ranking and relevance" },
       // TODO: swap "#" for the Udemy course URL once it is published.
-      { name: "Udemy course", href: "#", note: "Coming soon" },
+      { name: "Udemy course", href: "#", note: "Coming soon", highlight: true },
     ],
   },
   { name: "Blog", href: "/blog" },
@@ -73,9 +73,14 @@ export default function Navigation() {
                   <ul className="w-64 rounded-2xl border border-[#F0AFC0]/45 bg-white/95 p-2 shadow-[0_14px_40px_rgba(232,111,147,0.15)] backdrop-blur-xl">
                     {item.children.map((c) => (
                       <li key={c.name}>
-                        <Link href={c.href} className="block rounded-xl px-3 py-2.5 hover:bg-[#FFF1EA]">
-                          <span className="block text-sm font-medium text-text-primary">{c.name}</span>
-                          <span className="block text-xs text-text-secondary">{c.note}</span>
+                        <Link
+                          href={c.href}
+                          className={c.highlight
+                            ? "mt-1 block rounded-xl bg-[#F550B5] px-3 py-2.5 text-white shadow-[0_8px_20px_rgba(245,80,181,0.35)] transition-transform hover:-translate-y-0.5 hover:bg-[#E93FA6]"
+                            : "block rounded-xl px-3 py-2.5 hover:bg-[#FFF1EA]"}
+                        >
+                          <span className={`block text-sm font-semibold ${c.highlight ? "text-white" : "text-text-primary"}`}>{c.name}</span>
+                          <span className={`block text-xs ${c.highlight ? "text-white/90" : "text-text-secondary"}`}>{c.note}</span>
                         </Link>
                       </li>
                     ))}
@@ -142,8 +147,14 @@ export default function Navigation() {
                   <ul>
                     {item.children.map((c) => (
                       <li key={c.name}>
-                        <Link href={c.href} onClick={() => setMenuOpen(false)} className="block rounded-lg px-6 py-2.5 text-base font-medium text-text-primary hover:bg-[#FFF1EA]">
-                          {c.name}
+                        <Link
+                          href={c.href}
+                          onClick={() => setMenuOpen(false)}
+                          className={c.highlight
+                            ? "mx-3 my-1 block rounded-lg bg-[#F550B5] px-3 py-2.5 text-base font-semibold text-white shadow-[0_8px_20px_rgba(245,80,181,0.35)]"
+                            : "block rounded-lg px-6 py-2.5 text-base font-medium text-text-primary hover:bg-[#FFF1EA]"}
+                        >
+                          {c.name}{c.highlight ? <span className="ml-2 text-xs font-medium text-white/90">{c.note}</span> : null}
                         </Link>
                       </li>
                     ))}
