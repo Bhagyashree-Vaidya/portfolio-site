@@ -52,6 +52,21 @@ export const caseStudiesData: CaseStudy[] = [
     ]
   },
   {
+    id: "walmart",
+    name: "Walmart teardown",
+    logo: "🛒",
+    accentColor: "#0071CE",
+    slides: [
+      { id: "slide-1", title: "Walmart grocery pickup and delivery teardown, slide 1", imageSrc: "/images/case-studies/walmart/slide-1.jpg" },
+      { id: "slide-2", title: "Walmart grocery pickup and delivery teardown, slide 2", imageSrc: "/images/case-studies/walmart/slide-2.jpg" },
+      { id: "slide-3", title: "Walmart grocery pickup and delivery teardown, slide 3", imageSrc: "/images/case-studies/walmart/slide-3.jpg" },
+      { id: "slide-4", title: "Walmart grocery pickup and delivery teardown, slide 4", imageSrc: "/images/case-studies/walmart/slide-4.jpg" },
+      { id: "slide-5", title: "Walmart grocery pickup and delivery teardown, slide 5", imageSrc: "/images/case-studies/walmart/slide-5.jpg" },
+      { id: "slide-6", title: "Walmart grocery pickup and delivery teardown, slide 6", imageSrc: "/images/case-studies/walmart/slide-6.jpg" },
+      { id: "slide-7", title: "Walmart grocery pickup and delivery teardown, slide 7", imageSrc: "/images/case-studies/walmart/slide-7.jpg" },
+    ]
+  },
+  {
     id: "rufus",
     name: "Rufus teardown",
     logo: "💬",
@@ -64,6 +79,36 @@ export const caseStudiesData: CaseStudy[] = [
       { id: "slide-5", title: "Amazon Rufus AI shopping assistant teardown, slide 5", imageSrc: "/images/case-studies/rufus/slide-5.jpg" },
       { id: "slide-6", title: "Amazon Rufus AI shopping assistant teardown, slide 6", imageSrc: "/images/case-studies/rufus/slide-6.jpg" },
       { id: "slide-7", title: "Amazon Rufus AI shopping assistant teardown, slide 7", imageSrc: "/images/case-studies/rufus/slide-7.jpg" },
+    ]
+  },
+  {
+    id: "rover",
+    name: "Rover teardown",
+    logo: "🐕",
+    accentColor: "#00BD70",
+    slides: [
+      { id: "slide-1", title: "Rover sitter search and trust teardown, slide 1", imageSrc: "/images/case-studies/rover/slide-1.jpg" },
+      { id: "slide-2", title: "Rover sitter search and trust teardown, slide 2", imageSrc: "/images/case-studies/rover/slide-2.jpg" },
+      { id: "slide-3", title: "Rover sitter search and trust teardown, slide 3", imageSrc: "/images/case-studies/rover/slide-3.jpg" },
+      { id: "slide-4", title: "Rover sitter search and trust teardown, slide 4", imageSrc: "/images/case-studies/rover/slide-4.jpg" },
+      { id: "slide-5", title: "Rover sitter search and trust teardown, slide 5", imageSrc: "/images/case-studies/rover/slide-5.jpg" },
+      { id: "slide-6", title: "Rover sitter search and trust teardown, slide 6", imageSrc: "/images/case-studies/rover/slide-6.jpg" },
+      { id: "slide-7", title: "Rover sitter search and trust teardown, slide 7", imageSrc: "/images/case-studies/rover/slide-7.jpg" },
+    ]
+  },
+  {
+    id: "chewy",
+    name: "Chewy teardown",
+    logo: "🦴",
+    accentColor: "#1C49C2",
+    slides: [
+      { id: "slide-1", title: "Chewy Autoship and pet care teardown, slide 1", imageSrc: "/images/case-studies/chewy/slide-1.jpg" },
+      { id: "slide-2", title: "Chewy Autoship and pet care teardown, slide 2", imageSrc: "/images/case-studies/chewy/slide-2.jpg" },
+      { id: "slide-3", title: "Chewy Autoship and pet care teardown, slide 3", imageSrc: "/images/case-studies/chewy/slide-3.jpg" },
+      { id: "slide-4", title: "Chewy Autoship and pet care teardown, slide 4", imageSrc: "/images/case-studies/chewy/slide-4.jpg" },
+      { id: "slide-5", title: "Chewy Autoship and pet care teardown, slide 5", imageSrc: "/images/case-studies/chewy/slide-5.jpg" },
+      { id: "slide-6", title: "Chewy Autoship and pet care teardown, slide 6", imageSrc: "/images/case-studies/chewy/slide-6.jpg" },
+      { id: "slide-7", title: "Chewy Autoship and pet care teardown, slide 7", imageSrc: "/images/case-studies/chewy/slide-7.jpg" },
     ]
   },
   {
