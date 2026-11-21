@@ -18,7 +18,7 @@ const navItems: NavItem[] = [
     href: "/insights",
     children: [
       { name: "Insights", href: "/insights", note: "Practical PM guides" },
-      { name: "Research", href: "/research/confirmation-bias-ai", note: "Confirmation bias in AI analytics" },
+      { name: "Search", href: "/expertise/search-product-management", note: "Search, ranking and relevance" },
     ],
   },
   { name: "Blog", href: "/blog" },
