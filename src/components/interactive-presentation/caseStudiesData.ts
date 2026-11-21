@@ -37,6 +37,21 @@ export const caseStudiesData: CaseStudy[] = [
     ]
   },
   {
+    id: "bestbuy",
+    name: "Best Buy teardown",
+    logo: "📺",
+    accentColor: "#0046BE",
+    slides: [
+      { id: "slide-1", title: "Best Buy search and AI discovery teardown, slide 1", imageSrc: "/images/case-studies/bestbuy/slide-1.jpg" },
+      { id: "slide-2", title: "Best Buy search and AI discovery teardown, slide 2", imageSrc: "/images/case-studies/bestbuy/slide-2.jpg" },
+      { id: "slide-3", title: "Best Buy search and AI discovery teardown, slide 3", imageSrc: "/images/case-studies/bestbuy/slide-3.jpg" },
+      { id: "slide-4", title: "Best Buy search and AI discovery teardown, slide 4", imageSrc: "/images/case-studies/bestbuy/slide-4.jpg" },
+      { id: "slide-5", title: "Best Buy search and AI discovery teardown, slide 5", imageSrc: "/images/case-studies/bestbuy/slide-5.jpg" },
+      { id: "slide-6", title: "Best Buy search and AI discovery teardown, slide 6", imageSrc: "/images/case-studies/bestbuy/slide-6.jpg" },
+      { id: "slide-7", title: "Best Buy search and AI discovery teardown, slide 7", imageSrc: "/images/case-studies/bestbuy/slide-7.jpg" },
+    ]
+  },
+  {
     id: "rufus",
     name: "Rufus teardown",
     logo: "💬",
