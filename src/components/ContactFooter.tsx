@@ -4,9 +4,9 @@ import { PERSON, mailto } from "@/lib/site";
 
 const linkCls = "hover:text-[#9C2F55] hover:underline underline-offset-2";
 
-export default function ContactFooter() {
+export function FooterCard() {
   return (
-    <footer id="contact" className="relative z-10 w-full overflow-hidden bg-bg-primary">
+    <footer id="contact" className="relative w-full">
       {/* The paper-cut campus stays fully visible; the card sits in the sky. */}
       <div className="relative mx-auto w-full max-w-[1320px] px-4 pt-12 sm:px-6 md:pt-16">
         <div className="relative z-10 rounded-[24px] bg-white/85 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.15)] backdrop-blur-md sm:p-7 md:pb-24">
@@ -72,9 +72,19 @@ export default function ContactFooter() {
           </div>
         </div>
       </div>
+
+    </footer>
+  );
+}
+
+// The campus scene sits after the page grid; the card above dips into its
+// cream sky and the tower spires (z-30) are drawn in front of the card.
+export function FooterScene() {
+  return (
+    <div className="relative -mt-[7%] w-full">
       {/* The card dips into the cream sky; the tower spires are a cut-out
           layer drawn in front of it, so the card hangs between them. */}
-      <div className="relative -mt-[7%]">
+      <div>
         <Image
           src="/images/footer-landscape.webp"
           alt="Paper-cut illustration of a university campus with cherry blossoms"
@@ -93,13 +103,22 @@ export default function ContactFooter() {
           height={236}
           unoptimized
           loading="lazy"
-          className="pointer-events-none absolute top-0 z-20 h-auto"
+          className="pointer-events-none absolute top-0 z-30 h-auto"
           style={{ left: `${(1430 / 2400) * 100}%`, width: `${(380 / 2400) * 100}%` }}
         />
       </div>
-      <p className="absolute bottom-3 left-0 right-0 text-center text-xs font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
+      <p className="absolute bottom-3 z-30 left-0 right-0 text-center text-xs font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
         © 2026 {PERSON.displayName}.
       </p>
-    </footer>
+    </div>
+  );
+}
+
+export default function ContactFooter() {
+  return (
+    <>
+      <FooterCard />
+      <FooterScene />
+    </>
   );
 }

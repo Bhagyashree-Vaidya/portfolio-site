@@ -16,7 +16,7 @@ const CareerTimeline = dynamic(() => import("@/components/CareerTimeline"), { ss
 const InteractiveCaseStudies = dynamic(() => import("@/components/interactive-presentation/InteractiveCaseStudies"), { ssr: true });
 const Evidence = dynamic(() => import("@/components/Evidence"), { ssr: true });
 const SelectedAchievements = dynamic(() => import("@/components/SelectedAchievements"), { ssr: true });
-const ContactFooter = dynamic(() => import("@/components/ContactFooter"), { ssr: true });
+import { FooterCard, FooterScene } from "@/components/ContactFooter";
 
 export default function Home() {
   return (
@@ -44,9 +44,10 @@ export default function Home() {
           <CareerTimeline />
           <SelectedAchievements />
           <Evidence />
+          <FooterCard />
         </div>
       </div>
-      <ContactFooter />
+      <FooterScene />
     </main>
   );
 }
