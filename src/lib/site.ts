@@ -14,7 +14,7 @@ export const PERSON = {
   linkedin: "https://www.linkedin.com/in/shree-vaidya/",
   github: "https://github.com/Bhagyashree-Vaidya",
   // Set to "/Shree_Vaidya_Resume.pdf" once the PDF is added to /public.
-  resumePdf: null as string | null,
+  resumePdf: "/Shree_Vaidya_Resume.pdf" as string | null,
 };
 
 export const SHORT_BIO =
