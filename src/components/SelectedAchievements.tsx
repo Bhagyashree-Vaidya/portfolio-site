@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Section from "./Section";
 
@@ -33,99 +32,53 @@ const achievements = [
 
 export default function SelectedAchievements() {
   return (
-    <>
-      <Section id="achievements" className="!py-[20px] mt-[10vh]">
-        <div className="mb-[20px]">
-          <h3 className="text-sm font-mono text-text-muted uppercase tracking-widest mb-2">Selected Achievements</h3>
-          <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-text-primary">Accolades.</h2>
-        </div>
-        <div className="flex flex-col gap-8 mt-12 border-t border-border-primary/50 w-full max-w-[1200px] mx-auto">
-          {achievements.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: idx * 0.1 }}
-              className="group grid md:grid-cols-12 gap-8 py-12 border-b border-border-primary/50 items-start"
-            >
-              <div className="md:col-span-3 space-y-2">
-                <span className="inline-block rounded-full border border-[#F5B5C5]/45 bg-[#FFF2EC] px-3.5 py-1 text-xs font-mono uppercase tracking-widest text-[#7C3B49]">
-                  {item.type}
-                </span>
-                <p className="text-xs font-mono text-text-muted uppercase tracking-widest pt-2">
-                  {item.detail}
-                </p>
-              </div>
-              
-              <div className="md:col-span-9 space-y-6">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-display font-medium tracking-tight text-text-primary group-hover:text-[#E86F93] transition-colors duration-500 ease-out-expo mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm font-mono text-text-secondary tracking-widest uppercase">
-                    {item.org}
-                  </p>
-                </div>
-                <p className="text-lg text-text-secondary font-light leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-
-                {/* Metrics */}
-                {item.metrics && (
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-                    {item.metrics.map((metric, midx) => (
-                      <div key={midx} className="flex flex-col gap-1">
-                        <span className="text-2xl md:text-3xl font-display font-bold text-[#E86F93]">
-                          {metric.value}
-                        </span>
-                        <span className="text-sm font-mono text-text-secondary tracking-widest uppercase">
-                          {metric.label}
-                        </span>
-                      </div>
-                    ))}
+    <Section id="achievements" className="!py-10">
+      <div className="mb-5">
+        <h3 className="text-sm font-mono text-text-muted uppercase tracking-widest mb-1">Selected Achievements</h3>
+        <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-text-primary">Accolades.</h2>
+      </div>
+      <div className="grid w-full gap-5 md:grid-cols-2">
+        {achievements.map((item, idx) => (
+          <motion.article
+            key={idx}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: idx * 0.08 }}
+            className="flex flex-col rounded-[24px] border border-border-primary/60 bg-white/70 p-5 shadow-sm backdrop-blur-sm md:p-6"
+          >
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-full border border-[#F5B5C5]/45 bg-[#FFF2EC] px-3 py-0.5 text-[11px] font-mono uppercase tracking-widest text-[#7C3B49]">{item.type}</span>
+              <span className="text-[11px] font-mono uppercase tracking-widest text-text-muted">{item.detail}</span>
+            </div>
+            <h3 className="mt-3 text-xl font-display font-semibold tracking-tight text-text-primary md:text-2xl">{item.title}</h3>
+            <p className="mt-1 text-xs font-mono uppercase tracking-widest text-text-secondary">{item.org}</p>
+            <p className="mt-3 text-[15px] font-light leading-relaxed text-text-secondary">{item.description}</p>
+            {item.metrics && (
+              <div className="mt-3 grid grid-cols-3 gap-3">
+                {item.metrics.map((m, i) => (
+                  <div key={i}>
+                    <p className="text-base font-display font-bold text-[#C2456E] md:text-lg">{m.value}</p>
+                    <p className="text-[10px] font-mono uppercase tracking-widest text-text-secondary">{m.label}</p>
                   </div>
-                )}
-
-                {/* Tags */}
-                {item.tags && (
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {item.tags.map((tag, tidx) => (
-                      <span key={tidx} className="px-3 py-1.5 text-xs font-mono rounded-full border border-[#F0AFC0]/40 bg-white/50 text-[#7C3B49] shadow-sm backdrop-blur-sm">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                {/* Links */}
-                <div className="flex flex-wrap items-center gap-4 pt-4">
-                  {item.externalLink && (
-                    <a
-                      href={item.externalLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 font-display text-lg font-medium text-[#7C3B49] hover:text-[#E86F93] transition-colors duration-300"
-                    >
-                      {item.externalLinkText || "View Source ↗"}
-                    </a>
-                  )}
-                  {item.downloadLink && (
-                    <a
-                      href={item.downloadLink}
-                      download
-                      className="inline-flex items-center gap-2 rounded-full border border-[#F0AFC0]/55 bg-gradient-to-r from-[#FFF1EA] to-[#FFDCE5] px-6 py-3 text-sm font-medium text-[#7C3B49] shadow-[0_14px_34px_rgba(232,111,147,0.12)] transition-all duration-300 ease-out-expo hover:-translate-y-0.5 hover:border-[#E86F93]/70 hover:from-[#FFE7DC] hover:to-[#FFC9DA] hover:text-[#9C2F55]"
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                      Download PDF
-                    </a>
-                  )}
-                </div>
+                ))}
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-    </>
+            )}
+            <div className="mt-auto flex flex-wrap items-center gap-3 pt-4">
+              {item.externalLink && (
+                <a href={item.externalLink} target={item.externalLink.startsWith("/") ? undefined : "_blank"} rel="noopener noreferrer" className="text-sm font-medium text-[#7C3B49] hover:text-[#E86F93]">
+                  {item.externalLinkText || "View source ↗"}
+                </a>
+              )}
+              {item.downloadLink && (
+                <a href={item.downloadLink} download className="rounded-full border border-[#F0AFC0]/55 bg-[#FFF1EA] px-4 py-1.5 text-xs font-medium text-[#7C3B49] hover:text-[#9C2F55]">
+                  Download PDF
+                </a>
+              )}
+            </div>
+          </motion.article>
+        ))}
+      </div>
+    </Section>
   );
 }

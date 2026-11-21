@@ -81,108 +81,56 @@ export default function Evidence() {
   const displayText = isExpanded || !isLong ? rec.text : words.slice(0, 20).join(" ") + "...";
 
   return (
-    <Section id="evidence" className="!py-[20px] mt-[10vh]">
-      <div className="mb-[20px]">
-        <h3 className="text-sm font-mono text-text-muted uppercase tracking-widest mb-2">Recommendations</h3>
-        <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-text-primary">Evidence.</h2>
-      </div>
-
-      <div className="relative w-full max-w-[1000px] mx-auto mt-8 flex flex-col items-center">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, scale: 0.95, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            exit={{ opacity: 0, scale: 0.95, x: -20 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full break-inside-avoid p-8 md:p-14 rounded-[2.5rem] bg-gradient-to-br from-[#FFF1EA] to-[#FFDCE5] border border-[#F0AFC0]/50 shadow-sm relative overflow-hidden group hover:shadow-md transition-all duration-500"
-          >
-            {/* Glass Overlay */}
-            <div className="absolute inset-0 bg-white/20 backdrop-blur-[2px]"></div>
-            
-            <div className="relative z-10 flex flex-col h-full">
-              {/* Decorative Quote Mark */}
-              <div className="text-8xl md:text-9xl font-serif text-[#E86F93]/10 absolute -top-10 -left-6 select-none leading-none z-0">
-                "
-              </div>
-              
-              {/* Review Text */}
-              <p className="text-base md:text-lg font-light text-text-primary leading-relaxed mt-6 mb-10 relative z-10 whitespace-pre-line">
-                {displayText}
-                {isLong && (
-                  <button 
-                    onClick={() => setIsExpanded(!isExpanded)}
-                    className="ml-2 font-medium text-[#E86F93] hover:text-[#7C3B49] transition-colors"
-                  >
-                    {isExpanded ? "Read less" : "Read more"}
-                  </button>
-                )}
-              </p>
-              
-              {/* Image Snapshot */}
-              {rec.snapshot && (
-                <div className="mb-10 overflow-hidden rounded-[1.5rem] border-[4px] border-white/60 shadow-sm relative z-10 bg-white/50 w-full max-w-[700px]">
-                  <img 
-                    src={rec.snapshot} 
-                    alt={`Recommendation from ${rec.name}`}
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              )}
-
-              {/* Author Info */}
-              <div className="mt-auto pt-6 border-t border-[#F0AFC0]/40 flex flex-col gap-1 relative z-10">
-                <span className="font-display font-bold tracking-tight text-xl md:text-2xl text-text-primary">
-                  {rec.name}
-                </span>
-                <span className="font-mono text-xs md:text-sm uppercase tracking-widest text-[#E86F93] font-semibold mt-1">
-                  {rec.title}
-                </span>
-                <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2 font-mono text-[10px] md:text-xs uppercase tracking-widest text-text-muted mt-2">
-                  <span>{rec.relationship}</span>
-                  <span className="hidden md:inline text-[#E86F93]">•</span>
-                  <span>{rec.date}</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Carousel Controls */}
-        <div className="flex items-center justify-center gap-6 mt-10">
-          <button 
-            onClick={prevSlide} 
-            className="w-12 h-12 rounded-full bg-white border border-[#F0AFC0]/60 flex items-center justify-center text-[#E86F93] hover:bg-[#FFF1EA] hover:scale-105 transition-all shadow-sm"
-            aria-label="Previous Recommendation"
-          >
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    <Section id="evidence" className="!py-10">
+      <div className="mb-5 flex items-end justify-between gap-4">
+        <div>
+          <h3 className="text-sm font-mono text-text-muted uppercase tracking-widest mb-1">Recommendations</h3>
+          <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-text-primary">Evidence.</h2>
+        </div>
+        <div className="flex items-center gap-3">
+          <button onClick={prevSlide} aria-label="Previous recommendation" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#F0AFC0]/60 bg-white text-[#E86F93] shadow-sm hover:bg-[#FFF1EA]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
-          
-          <div className="flex gap-3">
-            {recommendations.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`transition-all duration-300 rounded-full shadow-sm ${
-                  currentIndex === idx 
-                    ? 'w-8 h-3 bg-[#E86F93]' 
-                    : 'w-3 h-3 bg-[#D1D5DB] hover:bg-[#F0AFC0]'
-                }`}
-                aria-label={`Go to recommendation ${idx + 1}`}
-              />
-            ))}
-          </div>
-
-          <button 
-            onClick={nextSlide} 
-            className="w-12 h-12 rounded-full bg-white border border-[#F0AFC0]/60 flex items-center justify-center text-[#E86F93] hover:bg-[#FFF1EA] hover:scale-105 transition-all shadow-sm"
-            aria-label="Next Recommendation"
-          >
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          <span className="font-mono text-xs text-text-muted">{currentIndex + 1} / {recommendations.length}</span>
+          <button onClick={nextSlide} aria-label="Next recommendation" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#F0AFC0]/60 bg-white text-[#E86F93] shadow-sm hover:bg-[#FFF1EA]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </button>
         </div>
       </div>
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, x: 16 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -16 }}
+          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          className="grid w-full items-start gap-6 rounded-[24px] border border-[#F0AFC0]/50 bg-gradient-to-br from-[#FFF1EA] to-[#FFDCE5] p-5 shadow-sm md:grid-cols-[1.4fr_1fr] md:p-7"
+        >
+          <div className="flex h-full flex-col">
+            <p className="whitespace-pre-line text-[15px] font-light leading-relaxed text-text-primary md:text-base">
+              <span className="mr-1 font-serif text-2xl leading-none text-[#E86F93]">&ldquo;</span>
+              {displayText}
+              {isLong && (
+                <button onClick={() => setIsExpanded(!isExpanded)} className="ml-2 font-medium text-[#E86F93] hover:text-[#7C3B49]">
+                  {isExpanded ? "Read less" : "Read more"}
+                </button>
+              )}
+            </p>
+            <div className="mt-auto pt-4">
+              <p className="font-display text-lg font-bold tracking-tight text-text-primary">{rec.name}</p>
+              <p className="font-mono text-[11px] uppercase tracking-widest text-[#C2456E]">{rec.title}</p>
+              <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-text-muted">{rec.relationship} · {rec.date}</p>
+            </div>
+          </div>
+          {rec.snapshot && (
+            <div className="overflow-hidden rounded-xl border-2 border-white/70 bg-white/60 shadow-sm">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={rec.snapshot} alt={`LinkedIn recommendation from ${rec.name}`} loading="lazy" className="max-h-[260px] w-full object-contain object-top" />
+            </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
     </Section>
   );
 }

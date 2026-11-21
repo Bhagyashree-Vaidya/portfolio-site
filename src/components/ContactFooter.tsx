@@ -6,9 +6,9 @@ const linkCls = "hover:text-[#9C2F55] hover:underline underline-offset-2";
 
 export default function ContactFooter() {
   return (
-    <footer id="contact" className="relative z-10 w-full overflow-hidden bg-[#BFD7EA]">
+    <footer id="contact" className="relative z-10 w-full overflow-hidden bg-bg-primary">
       {/* The paper-cut campus stays fully visible; the card sits in the sky. */}
-      <div className="relative mx-auto w-full max-w-[1320px] px-4 pt-24 sm:px-6 md:pt-28">
+      <div className="relative mx-auto w-full max-w-[1320px] px-4 pt-12 pb-8 sm:px-6 md:pt-16 md:pb-10">
         <div className="relative z-10 rounded-[24px] bg-white/85 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.15)] backdrop-blur-md sm:p-7">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
             <div>
@@ -80,7 +80,7 @@ export default function ContactFooter() {
         unoptimized
         loading="lazy"
         sizes="100vw"
-        className="relative -mt-[8%] block h-auto w-full"
+        className="relative block h-auto w-full"
       />
       <p className="absolute bottom-3 left-0 right-0 text-center text-xs font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
         © 2026 {PERSON.displayName}.
