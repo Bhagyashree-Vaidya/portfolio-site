@@ -8,7 +8,7 @@ export function FooterCard() {
   return (
     <footer id="contact" className="relative w-full">
       {/* The paper-cut campus stays fully visible; the card sits in the sky. */}
-      <div className="relative mx-auto w-full max-w-[1320px] px-4 pt-12 sm:px-6 md:pt-16 lg:mx-0 lg:max-w-none lg:pl-10 lg:pr-[min(30vw,600px)]">
+      <div className="relative mx-auto w-full max-w-[1320px] px-4 pt-12 sm:px-6 md:pt-16">
         <div className="relative z-10 rounded-[24px] bg-white/85 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.15)] backdrop-blur-md sm:p-7 md:pb-24">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
             <div>
