@@ -69,9 +69,9 @@ function Tree() {
   const { scrollYProgress } = useScroll();
   // A spring softens fast flicks of the scroll wheel into a cinematic glide.
   const eased = useSpring(scrollYProgress, reduce ? { duration: 0 } : { stiffness: 60, damping: 22, mass: 0.6 });
-  // No tree over the opening hero or the closing footer.
-  const progress = useTransform(eased, [0.05, 0.9], [0, LAST], { clamp: true });
-  const presence = useTransform(eased, [0.02, 0.07, 0.94, 0.99], [0, 1, 1, 0]);
+  // No tree over the opening hero; the falling-blossom tree then stays to the end.
+  const progress = useTransform(eased, [0.05, 0.8], [0, LAST], { clamp: true });
+  const presence = useTransform(eased, [0.02, 0.07], [0, 1]);
   const x = useTransform(eased, [0, 1], reduce ? [0, 0] : [0, -18]);
   const y = useTransform(eased, [0, 1], reduce ? [0, 0] : [0, -34]);
 
