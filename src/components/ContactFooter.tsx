@@ -8,8 +8,8 @@ export default function ContactFooter() {
   return (
     <footer id="contact" className="relative z-10 w-full overflow-hidden bg-bg-primary">
       {/* The paper-cut campus stays fully visible; the card sits in the sky. */}
-      <div className="relative mx-auto w-full max-w-[1320px] px-4 pt-12 pb-8 sm:px-6 md:pt-16 md:pb-10">
-        <div className="relative z-10 rounded-[24px] bg-white/85 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.15)] backdrop-blur-md sm:p-7">
+      <div className="relative mx-auto w-full max-w-[1320px] px-4 pt-12 sm:px-6 md:pt-16">
+        <div className="relative z-10 rounded-[24px] bg-white/85 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.15)] backdrop-blur-md sm:p-7 md:pb-24">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
             <div>
               <h2 className="text-3xl font-display font-bold tracking-tight text-text-primary md:text-4xl">Get in touch.</h2>
@@ -72,16 +72,31 @@ export default function ContactFooter() {
           </div>
         </div>
       </div>
-      <Image
-        src="/images/footer-landscape.webp"
-        alt="Paper-cut illustration of a university campus with cherry blossoms"
-        width={2400}
-        height={1339}
-        unoptimized
-        loading="lazy"
-        sizes="100vw"
-        className="relative block h-auto w-full"
-      />
+      {/* The card dips into the cream sky; the tower spires are a cut-out
+          layer drawn in front of it, so the card hangs between them. */}
+      <div className="relative -mt-[7%]">
+        <Image
+          src="/images/footer-landscape.webp"
+          alt="Paper-cut illustration of a university campus with cherry blossoms"
+          width={2400}
+          height={1339}
+          unoptimized
+          loading="lazy"
+          sizes="100vw"
+          className="block h-auto w-full"
+        />
+        <Image
+          src="/images/footer-tower-top.png"
+          alt=""
+          aria-hidden="true"
+          width={380}
+          height={236}
+          unoptimized
+          loading="lazy"
+          className="pointer-events-none absolute top-0 z-20 h-auto"
+          style={{ left: `${(1430 / 2400) * 100}%`, width: `${(380 / 2400) * 100}%` }}
+        />
+      </div>
       <p className="absolute bottom-3 left-0 right-0 text-center text-xs font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
         © 2026 {PERSON.displayName}.
       </p>
