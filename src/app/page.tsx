@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Identity from "@/components/Identity";
+import { jsonLdString, siteJsonLd } from "@/lib/site";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 import Resume from "@/components/Resume";
 import TreeStory from "@/components/TreeStory";
 
@@ -14,7 +20,11 @@ const ContactFooter = dynamic(() => import("@/components/ContactFooter"), { ssr:
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between w-full">
-      <div className="grid w-full">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdString(siteJsonLd()) }}
+      />
+      <div className="grid w-full grid-cols-[minmax(0,1fr)]">
         {/* Sticky layer for the tree */}
         <div className="col-start-1 row-start-1 w-full h-full pointer-events-none z-0">
           <div className="sticky top-0 w-full h-screen overflow-visible">
@@ -23,9 +33,9 @@ export default function Home() {
         </div>
 
         {/* Content layer */}
-        <div className="col-start-1 row-start-1 w-full z-10">
+        <div className="col-start-1 row-start-1 w-full min-w-0 z-10">
           <Identity />
-          <div style={{ display: "none" }}><Resume /></div>
+          <Resume />
           <FeaturedProductStories />
           <Education />
           <CareerTimeline />
