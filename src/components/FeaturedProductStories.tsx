@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { useRef, useState } from "react";
 import Section from "./Section";
+import { readableOn } from "@/lib/color";
 
 const projects = [
   { 
@@ -66,12 +67,16 @@ const projects = [
 
 export default function FeaturedProductStories() {
   const [expandedIndex, setExpandedIndex] = useState<number>(0);
+  // Only fetch project videos once the section is near the viewport.
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(sectionRef, { once: true, margin: "300px 0px" });
 
   const activeProject = projects[expandedIndex];
-  const activeColor = activeProject.color || '#E86F93';
+  const activeColor = readableOn(activeProject.color || '#E86F93', '#FAF8F4', 3);
 
   return (
     <Section id="work" className="!py-[40px] mt-[10vh] relative overflow-visible">
+      <div ref={sectionRef}>
       {/* Soft dynamic background glow */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
         <motion.div 
@@ -161,7 +166,9 @@ export default function FeaturedProductStories() {
                   >
                     {projects[expandedIndex]?.video ? (
                       <video
-                        src={projects[expandedIndex].video}
+                        src={inView ? projects[expandedIndex].video : undefined}
+                        preload="none"
+                        aria-label={`Screen recording of ${projects[expandedIndex].title}`}
                         autoPlay
                         loop
                         muted
@@ -187,7 +194,7 @@ export default function FeaturedProductStories() {
         <div className="w-full lg:w-[40%] flex flex-col gap-5 relative z-20 pb-20 pt-16">
           {projects.map((project, idx) => {
             const isExpanded = expandedIndex === idx;
-            const cardColor = project.color || '#E86F93';
+            const cardColor = readableOn(project.color || '#E86F93');
             const num = (idx + 1).toString().padStart(2, '0');
 
             return (
@@ -235,7 +242,7 @@ export default function FeaturedProductStories() {
                       </div>
                       <h3 
                         className={`text-[17px] font-display font-medium transition-colors duration-300`}
-                        style={isExpanded ? { color: '#111111' } : { color: '#D65D82' }}
+                        style={isExpanded ? { color: '#111111' } : { color: '#B83B67' }}
                       >
                         {project.title}
                       </h3>
@@ -251,6 +258,7 @@ export default function FeaturedProductStories() {
                         className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-white shadow-sm hover:shadow-md hover:scale-110"
                         style={{ color: cardColor }}
                         title="View Project"
+                        aria-label={`Open ${project.title} (opens in a new tab)`}
                       >
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45">
                           <path d="M5 12h14"></path>
@@ -260,7 +268,7 @@ export default function FeaturedProductStories() {
                     ) : (
                       <div 
                         className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-500 bg-transparent rotate-0"
-                        style={{ color: '#8A8A8A' }}
+                        style={{ color: '#6B6B6B' }}
                       >
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M5 12h14"></path>
@@ -312,6 +320,7 @@ export default function FeaturedProductStories() {
         </div>
       </div>
       
+    </div>
     </Section>
   );
 }

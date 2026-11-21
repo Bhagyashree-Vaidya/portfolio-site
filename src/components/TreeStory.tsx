@@ -27,43 +27,43 @@ const trees: TreeStoryItem[] = [
   },
   {
     sectionId: "identity",
-    src: "/images/tree-story/tree-stage-1.png",
+    src: "/images/tree-story/tree-stage-1.webp",
     alt: "Paper-cut tree in its about state",
     rightInsetClass: "-translate-x-[10%]",
   },
   {
     sectionId: "resume",
-    src: "/images/tree-story/tree-stage-2.png",
+    src: "/images/tree-story/tree-stage-2.webp",
     alt: "Paper-cut tree in its resume state",
   },
   {
     sectionId: "work",
-    src: "/images/tree-story/tree-stage-3.png",
+    src: "/images/tree-story/tree-stage-3.webp",
     alt: "Paper-cut tree in its projects state",
   },
   {
     sectionId: "education",
-    src: "/images/tree-story/tree-stage-4.png",
+    src: "/images/tree-story/tree-stage-4.webp",
     alt: "Paper-cut tree in its education state",
   },
   {
     sectionId: "timeline",
-    src: "/images/tree-story/tree-stage-5.png",
+    src: "/images/tree-story/tree-stage-5.webp",
     alt: "Paper-cut tree in its timeline state",
   },
   {
     sectionId: "case-studies",
-    src: "/images/tree-story/tree-stage-5.png",
+    src: "/images/tree-story/tree-stage-5.webp",
     alt: "Paper-cut tree in its case studies state",
   },
   {
     sectionId: "evidence",
-    src: "/images/tree-story/tree-stage-6.png",
+    src: "/images/tree-story/tree-stage-6.webp",
     alt: "Paper-cut tree in its recommendation state",
   },
   {
     sectionId: "achievements",
-    src: "/images/tree-story/tree-stage-6.png",
+    src: "/images/tree-story/tree-stage-6.webp",
     alt: "Paper-cut tree in its final state",
   },
   {
@@ -156,7 +156,8 @@ function TreeImage({ item }: { item: TreeStoryItem | null }) {
             initial={{ opacity: 0 }}
             animate={{
               opacity: isActive ? 1 : 0,
-              filter: shouldReduceMotion
+              // Only the visible tree "breathes"; hidden ones stay static (saves main-thread work).
+              filter: shouldReduceMotion || !isActive
                 ? colorFilter(tree)
                 : [
                     colorFilter(tree),
@@ -173,7 +174,7 @@ function TreeImage({ item }: { item: TreeStoryItem | null }) {
               filter: {
                 duration: 5.5,
                 ease: "easeInOut",
-                repeat: shouldReduceMotion ? 0 : Infinity,
+                repeat: shouldReduceMotion || !isActive ? 0 : Infinity,
               },
             }}
           >
@@ -182,7 +183,6 @@ function TreeImage({ item }: { item: TreeStoryItem | null }) {
               alt={tree.alt ?? ""}
               fill
               unoptimized
-              priority
               sizes="(min-width: 1024px) 34vw, (min-width: 768px) 40vw, 68vw"
               className="select-none object-contain object-bottom-right"
             />
@@ -219,11 +219,20 @@ export default function TreeStory() {
   const [activeTree, setActiveTree] = useState<TreeStoryItem | null>(null);
   const [mounted, setMounted] = useState(false);
 
+  // The first section shows no tree, so mount (and preload images) only once
+  // the browser is idle. This keeps the tree off the critical rendering path.
   useEffect(() => {
-    setMounted(true);
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
+    if (w.requestIdleCallback) {
+      const id = w.requestIdleCallback(() => setMounted(true), { timeout: 2500 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(() => setMounted(true), 1200);
+    return () => window.clearTimeout(t);
   }, []);
 
   useEffect(() => {
+    if (!mounted) return;
     items.forEach((item) => {
       if (!item.src) {
         return;
@@ -232,7 +241,7 @@ export default function TreeStory() {
       const image = new window.Image();
       image.src = item.src;
     });
-  }, [items]);
+  }, [items, mounted]);
 
   if (!mounted) return null;
 

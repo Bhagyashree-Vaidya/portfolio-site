@@ -29,7 +29,7 @@ export default function Education() {
           {/* Education Header Info */}
           <div className="space-y-4">
             <h3 className="text-3xl font-display font-bold text-text-primary">University of Washington</h3>
-            <p className="text-[#E86F93] font-medium text-lg leading-relaxed">
+            <p className="text-[#9C2F55] font-medium text-lg leading-relaxed">
               Master of Science, Information Management | Product and AI Specialization
             </p>
             <div className="text-sm font-mono text-text-secondary mt-2">

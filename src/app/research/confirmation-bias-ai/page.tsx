@@ -1,6 +1,5 @@
 "use client";
 
-import Navigation from "@/components/Navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -14,7 +13,7 @@ const findings = [
   {
     number: "2",
     headline: "The Awareness Shield",
-    stat: "r = -0.47, p = 0.01",
+    stat: "r = −0.47, p = 0.011",
     detail: "The better someone could identify AI bias, the less they accepted output uncritically. Bias awareness is a measurable protective factor.",
   },
   {
@@ -71,7 +70,6 @@ const team = [
 export default function ConfirmationBiasPage() {
   return (
     <div className="min-h-screen flex flex-col bg-bg-primary">
-      <Navigation />
       
       <main className="flex-1 pt-32 pb-20">
         <div className="max-w-[900px] mx-auto px-6">
@@ -236,7 +234,12 @@ export default function ConfirmationBiasPage() {
             viewport={{ once: true }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-display font-bold mb-8 text-text-primary">Key Findings</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 text-text-primary">Key Findings</h2>
+            <p className="mb-8 text-base leading-relaxed text-text-secondary">
+              How to read these numbers: this was a team study with a small sample (29 survey respondents and 6
+              interviews). The statistics are correlations from self-reported survey data, so they show association,
+              not cause and effect. Treat them as directional. Full methods and limitations are in the PDF.
+            </p>
             <div className="space-y-6">
               {findings.map((f, idx) => (
                 <motion.div

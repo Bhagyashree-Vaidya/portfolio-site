@@ -1,11 +1,10 @@
-import Navigation from "@/components/Navigation";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { jsonLdString, pageJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "PAMA: AI-Powered Collaborative Biography Platform",
+  title: "PAMA: AI Collaborative Biography Platform",
   description:
     "PAMA is an AI-powered collaborative biography platform built by Shree Vaidya, funded by a UW iSchool iStartup Lab microgrant in Spring 2026.",
   alternates: { canonical: "/projects/pama" },
@@ -15,7 +14,6 @@ export const metadata: Metadata = {
 export default function PAMAPage() {
   return (
     <div className="min-h-screen flex flex-col bg-bg-primary">
-      <Navigation />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

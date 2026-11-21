@@ -11,9 +11,10 @@ const cursiveFont = Great_Vibes({ weight: "400", subsets: ["latin"] });
 const navItems = [
   { name: "About", href: "/#identity" },
   { name: "Experience", href: "/#resume" },
-  { name: "Case Studies", href: "/#case-studies" },
+  { name: "Case Studies", href: "/case-studies" },
+  { name: "Expertise", href: "/expertise" },
+  { name: "Insights", href: "/insights" },
   { name: "Research", href: "/research/confirmation-bias-ai" },
-  { name: "Projects", href: "/projects/pama" },
   { name: "Contact", href: "/#contact" },
 ];
 
@@ -37,17 +38,17 @@ export default function Navigation() {
       }`}
     >
       <div 
-        className={`relative flex items-center justify-between gap-12 px-6 md:px-8 transition-all duration-700 ease-out-expo overflow-hidden ${
+        className={`relative flex items-center justify-between gap-8 px-6 md:px-8 transition-all duration-700 ease-out-expo overflow-hidden ${
           scrolled 
-            ? "w-[95%] md:w-auto md:min-w-[750px] py-3 bg-white/75 backdrop-blur-xl border border-[#F0AFC0]/45 rounded-full shadow-[0_14px_40px_rgba(232,111,147,0.12)]"
+            ? "w-[95%] lg:w-auto lg:min-w-[820px] py-3 bg-white/75 backdrop-blur-xl border border-[#F0AFC0]/45 rounded-full shadow-[0_14px_40px_rgba(232,111,147,0.12)]"
             : "w-full max-w-[1320px] py-3 bg-transparent border-transparent rounded-none"
         }`}
       >
-        <Link href="/" className={`text-3xl md:text-4xl text-[#E86F93] hover:text-[#9C2F55] transition-colors ${cursiveFont.className} ${!scrolled && "drop-shadow-md"}`}>
+        <Link href="/" className={`text-3xl md:text-4xl text-[#B83B67] hover:text-[#9C2F55] transition-colors ${cursiveFont.className} ${!scrolled && "drop-shadow-md"}`} aria-label="Shree Vaidya, home">
           Shree
         </Link>
 
-        <nav aria-label="Main" className="hidden md:flex items-center gap-8">
+        <nav aria-label="Main" className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => (
             <Link 
               key={item.name}
@@ -76,7 +77,7 @@ export default function Navigation() {
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           onClick={() => setMenuOpen((o) => !o)}
-          className="flex rounded-full border border-[#F0AFC0]/55 bg-[#FFF1EA] p-2.5 shadow-[0_10px_24px_rgba(232,111,147,0.10)] md:hidden flex-col gap-1.5"
+          className="flex rounded-full border border-[#F0AFC0]/55 bg-[#FFF1EA] p-2.5 shadow-[0_10px_24px_rgba(232,111,147,0.10)] lg:hidden flex-col gap-1.5"
         >
           <div className="w-5 h-0.5 bg-[#9C2F55] rounded-full"></div>
           <div className="w-5 h-0.5 bg-[#9C2F55] rounded-full"></div>
@@ -95,7 +96,7 @@ export default function Navigation() {
         <nav
           id="mobile-menu"
           aria-label="Main"
-          className="absolute top-full mt-2 w-[95%] rounded-2xl border border-[#F0AFC0]/45 bg-white/95 p-4 shadow-lg backdrop-blur-xl md:hidden"
+          className="absolute top-full mt-2 w-[95%] rounded-2xl border border-[#F0AFC0]/45 bg-white/95 p-4 shadow-lg backdrop-blur-xl lg:hidden"
         >
           <ul className="flex flex-col">
             {navItems.map((item) => (
