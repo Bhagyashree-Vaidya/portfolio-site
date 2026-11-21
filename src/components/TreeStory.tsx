@@ -25,7 +25,7 @@ const stages = [
 
 const LAST = stages.length - 1;
 // Fraction of each step spent cross-fading; the rest holds still.
-const FADE = 0.45;
+const FADE = 0.35;
 
 const smooth = (t: number) => {
   const c = Math.min(1, Math.max(0, t));
@@ -40,12 +40,11 @@ const arrive = (s: number, i: number) => {
 };
 
 function Stage({ index, progress }: { index: number; progress: MotionValue<number> }) {
-  // Fade in over the previous stage, then fade out only once the
-  // next-but-one stage is arriving, so the visible tree is never see-through.
+  // True dissolve: this stage fades out exactly as the next fades in,
+  // so only one tree is ever fully visible and the two always sum to 1.
   const opacity = useTransform(progress, (s) => {
-    const fadeIn = arrive(s, index);
-    const fadeOut = index + 2 <= LAST ? 1 - arrive(s, index + 2) : 1;
-    return Math.min(fadeIn, fadeOut);
+    const next = index + 1 <= LAST ? arrive(s, index + 1) : 0;
+    return Math.max(0, arrive(s, index) - next);
   });
   const stage = stages[index];
   return (
