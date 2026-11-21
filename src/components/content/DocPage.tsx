@@ -90,6 +90,18 @@ export function docJsonLd(doc: Doc) {
           { "@type": "ListItem", position: 3, name: doc.title, item: url },
         ],
       },
+      // The visible FAQ section, as data answer engines can lift directly.
+      ...(doc.faqs?.length
+        ? [{
+            "@type": "FAQPage",
+            "@id": `${url}#faq`,
+            mainEntity: doc.faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a.replace(/\*\*|\[([^\]]+)\]\([^)]+\)/g, "$1") },
+            })),
+          }]
+        : []),
     ],
   };
 }

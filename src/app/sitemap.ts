@@ -3,6 +3,7 @@ import { ALL_DOCS, KIND_META, docPath } from "@/content/registry";
 import { SITE_URL } from "@/lib/site";
 import { postPath, publishedPosts } from "@/content/blog";
 import { TEARDOWNS } from "@/content/teardowns";
+import { DECKS } from "@/content/teardowns/decks";
 
 // Re-check hourly so scheduled blog posts are listed on their publish date.
 export const revalidate = 3600;
@@ -40,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const tds: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/teardowns`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.6 },
     ...TEARDOWNS.map((t) => ({ url: `${SITE_URL}/teardowns/${t.slug}`, lastModified: new Date(t.date), changeFrequency: "yearly" as const, priority: 0.5 })),
+    ...DECKS.map((d) => ({ url: `${SITE_URL}/teardowns/decks/${d.id}`, lastModified: siteUpdated, changeFrequency: "yearly" as const, priority: 0.6 })),
   ];
   return [...pages, ...docs, ...posts, ...tds];
 }

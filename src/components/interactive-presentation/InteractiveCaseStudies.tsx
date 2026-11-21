@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { readableOn } from "@/lib/color";
 import { caseStudiesData, CaseStudy, Slide } from "./caseStudiesData";
+import { DECKS } from "@/content/teardowns/decks";
+
+const DECK_IDS = new Set(DECKS.map((d) => d.id));
 
 export default function InteractiveCaseStudies() {
   const [activeCaseStudyId, setActiveCaseStudyId] = useState(caseStudiesData[0].id);
@@ -281,8 +284,15 @@ export default function InteractiveCaseStudies() {
             >
               &larr; Previous
             </button>
-            <div className="text-sm font-mono text-[#666666]">
-              {String(activeSlideIndex + 1).padStart(2, "0")} / {String(activeCaseStudy.slides.length).padStart(2, "0")}
+            <div className="flex flex-col items-center gap-1">
+              <div className="text-sm font-mono text-[#666666]">
+                {String(activeSlideIndex + 1).padStart(2, "0")} / {String(activeCaseStudy.slides.length).padStart(2, "0")}
+              </div>
+              {DECK_IDS.has(activeCaseStudy.id) && (
+                <a href={`/teardowns/decks/${activeCaseStudy.id}`} className="text-xs font-medium text-[#9C2F55] underline underline-offset-2">
+                  Read as an article
+                </a>
+              )}
             </div>
             <button
               onClick={() => setActiveSlideIndex((p) => Math.min(activeCaseStudy.slides.length - 1, p + 1))}

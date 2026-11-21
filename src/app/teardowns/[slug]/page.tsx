@@ -69,13 +69,26 @@ export default async function TeardownPage({ params }: Props) {
   const url = `${SITE_URL}/teardowns/${t.slug}`;
   const ld = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: t.title,
-    description: t.description,
-    url,
-    datePublished: t.date,
-    author: { "@id": `${SITE_URL}/#person` },
-    about: { "@type": "Organization", name: t.company },
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: t.title,
+        description: t.description,
+        url,
+        datePublished: t.date,
+        dateModified: t.date,
+        author: { "@id": `${SITE_URL}/#person` },
+        about: { "@type": "Organization", name: t.company },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Product teardowns", item: `${SITE_URL}/teardowns` },
+          { "@type": "ListItem", position: 3, name: t.title, item: url },
+        ],
+      },
+    ],
   };
   const sections = ["About", "Who uses it", "Journeys", "What I'd build", "How I'd measure it"];
 

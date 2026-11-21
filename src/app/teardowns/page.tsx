@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TEARDOWNS } from "@/content/teardowns";
+import { DECKS } from "@/content/teardowns/decks";
 
 export const metadata: Metadata = {
   title: "Product Teardowns: Spotify, Airbnb, Amazon and More",
@@ -19,7 +20,23 @@ export default function TeardownsIndex() {
           what I&apos;d build and measure. For my own work, see the{" "}
           <Link href="/case-studies" className="text-[#9C2F55] underline underline-offset-2">case studies</Link>.
         </p>
-        <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 className="mt-12 font-display text-2xl font-semibold text-text-primary">Slide-deck teardowns</h2>
+        <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {DECKS.map((d) => (
+            <li key={d.id}>
+              <Link href={`/teardowns/decks/${d.id}`} className="block h-full overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-sm transition-transform hover:-translate-y-1">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/images/case-studies/${d.id}/slide-1.jpg`} alt={`${d.title}, cover slide`} loading="lazy" className="aspect-video w-full object-cover" />
+                <div className="p-5">
+                  <p className="text-sm font-semibold uppercase tracking-wider" style={{ color: d.accent }}>{d.company}</p>
+                  <h3 className="mt-1 text-lg font-bold leading-snug text-text-primary">{d.title}</h3>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <h2 className="mt-14 font-display text-2xl font-semibold text-text-primary">Written teardowns</h2>
+        <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {TEARDOWNS.map((t) => (
             <li key={t.slug}>
               <Link
