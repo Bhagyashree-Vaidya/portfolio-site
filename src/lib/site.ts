@@ -10,9 +10,8 @@ export const PERSON = {
   jobTitle: "Senior Product Manager",
   location: "Seattle, WA",
   email: "bhagyashreevaidya08@gmail.com",
-  // TODO(Shree): the master résumé uses linkedin.com/in/shree-vaidya; the site
-  // uses this URL. Pick one and use it everywhere.
-  linkedin: "https://www.linkedin.com/in/bhagyashree-vaidya-6b47a811a/",
+  // Live profile (verified 2026-11-21). The old /in/bhagyashree-vaidya-6b47a811a/ URL is dead.
+  linkedin: "https://www.linkedin.com/in/shree-vaidya/",
   github: "https://github.com/Bhagyashree-Vaidya",
   // Set to "/Shree_Vaidya_Resume.pdf" once the PDF is added to /public.
   resumePdf: null as string | null,
@@ -49,7 +48,7 @@ export function personJsonLd() {
       addressRegion: "WA",
       addressCountry: "US",
     },
-    sameAs: [PERSON.linkedin, PERSON.github],
+    sameAs: [PERSON.linkedin, PERSON.github, "https://receivablesinfo.com/author/bhagyashree-vaidya/"],
     alumniOf: [
       { "@type": "CollegeOrUniversity", name: "University of Washington", sameAs: "https://www.washington.edu/" },
       { "@type": "CollegeOrUniversity", name: "Rashtrasant Tukadoji Maharaj Nagpur University" },

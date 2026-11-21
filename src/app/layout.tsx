@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     lastName: "Vaidya",
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "XD9QgmkSMGLZNYYi8UgEM62Rs9RpNHE3GOyD28oe-g8",
     other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
       ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
       : undefined,

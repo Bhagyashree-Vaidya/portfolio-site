@@ -19,7 +19,7 @@ These were skipped on purpose because they need your accounts, your confirmation
 | # | Question | Current handling |
 |---|---|---|
 | B1 | **Résumé PDF** (no phone number, no review markers). Save as `public/Shree_Vaidya_Resume.pdf` and set `resumePdf` in `src/lib/site.ts` | Buttons say "Request résumé by email" |
-| B2 | **One LinkedIn URL**: `/in/bhagyashree-vaidya-6b47a811a/` (used now) or `/in/shree-vaidya` (on the résumé)? | Site URL kept |
+| B2 | ~~One LinkedIn URL~~ **Resolved 2026-11-21:** the old `/in/bhagyashree-vaidya-6b47a811a/` URL is dead; the site now uses the live `/in/shree-vaidya/` | Done |
 | B3 | **Years of experience**: 8+ or 9+? | Copy says "in product since 2016" |
 | B4 | **Stallion Drop & Go**: GMV ($1.2M vs $5M) and the city names (your notes say "never confirmed") | Omitted |
 | B5 | **Shipping Assist metrics**: any number (sales, attach rate, damage or claims reduction, number of SKUs)? | Case study says the metrics aren't published |
