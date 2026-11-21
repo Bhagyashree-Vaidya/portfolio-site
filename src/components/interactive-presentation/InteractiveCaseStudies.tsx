@@ -60,7 +60,7 @@ export default function InteractiveCaseStudies() {
       className="relative w-full overflow-hidden bg-transparent text-[#111111] lg:h-[100vh] lg:min-h-[900px]"
       style={{ "--accent": accentColor } as React.CSSProperties}
     >
-      <div className="mx-auto w-full max-w-[1600px] flex flex-col pt-24 pb-10 px-4 md:px-8 lg:h-full lg:pt-8 lg:pb-6 lg:px-16">
+      <div className="mx-auto w-full max-w-[1600px] flex flex-col pt-28 pb-10 px-4 md:px-8 lg:h-full lg:pt-8 lg:pb-6 lg:px-16">
         
         {/* 1. Product Selector */}
         <h2 className="sr-only">Product teardown slide decks</h2>

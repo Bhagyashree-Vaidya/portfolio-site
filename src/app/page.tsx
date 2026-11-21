@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 import Resume from "@/components/Resume";
 import ExpertiseHub from "@/components/ExpertiseHub";
 import TreeStory from "@/components/TreeStory";
+import PressMarquee from "@/components/PressMarquee";
 
 const FeaturedProductStories = dynamic(() => import("@/components/FeaturedProductStories"), { ssr: true });
 const Education = dynamic(() => import("@/components/Education"), { ssr: true });
@@ -36,6 +37,7 @@ export default function Home() {
         {/* Content layer */}
         <div className="col-start-1 row-start-1 w-full min-w-0 z-10">
           <Identity />
+          <PressMarquee />
           <Resume />
           <InteractiveCaseStudies />
           <FeaturedProductStories />
