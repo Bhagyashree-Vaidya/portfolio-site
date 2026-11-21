@@ -10,12 +10,8 @@ const cursiveFont = Great_Vibes({ weight: "400", subsets: ["latin"] });
 
 const navItems = [
   { name: "About", href: "/#identity" },
-  { name: "Experience", href: "/#resume" },
-  { name: "Case Studies", href: "/case-studies" },
-  { name: "Expertise", href: "/expertise" },
   { name: "Insights", href: "/insights" },
   { name: "Blog", href: "/blog" },
-  { name: "Research", href: "/research/confirmation-bias-ai" },
   { name: "Contact", href: "/#contact" },
 ];
 
