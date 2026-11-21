@@ -44,7 +44,7 @@ export default function Identity() {
           className="relative z-20 col-span-full mb-[20px]"
         >
           <h1 className="mb-3 font-mono text-sm uppercase tracking-widest text-text-secondary">
-            Bhagyashree (Shree) Vaidya · Senior Product Manager, AI &amp; Search · Seattle, WA
+            Bhagyashree (Shree) Vaidya · Senior Product Manager, AI &amp; Search · Open to relocation
           </h1>
           <h2 className="text-3xl font-display font-medium leading-[1.1] tracking-tight text-text-primary sm:text-4xl md:text-5xl lg:text-6xl xl:text-[5rem] relative z-30 w-full max-w-none md:whitespace-nowrap">
             I move customer <br />

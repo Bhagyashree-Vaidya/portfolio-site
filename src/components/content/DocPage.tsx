@@ -193,7 +193,7 @@ export default function DocPage({ doc }: { doc: Doc }) {
 
           <section aria-labelledby="cta-h" className="rounded-2xl bg-gradient-to-br from-[#FFF1EA] to-[#FFDCE5] p-8">
             <h2 id="cta-h" className="font-display text-2xl font-semibold text-text-primary">Hiring for this kind of work?</h2>
-            <p className="mt-2 text-text-secondary">Shree is open to Senior PM, AI PM and Technical PM roles in Seattle or hybrid/remote.</p>
+            <p className="mt-2 text-text-secondary">Shree is open to Senior PM, AI PM and Technical PM roles, on-site, hybrid or remote, and open to relocation.</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a href={mailto(`About: ${doc.title}`)} className="rounded-md bg-[#B83B67] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#9C2F55]">Email Shree</a>
               <Link href="/#resume" className="rounded-md border border-[#B83B67] bg-white/70 px-5 py-2.5 text-sm font-medium text-[#9C2F55] hover:bg-white">See her experience</Link>

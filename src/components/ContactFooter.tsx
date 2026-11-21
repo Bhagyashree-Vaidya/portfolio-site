@@ -14,7 +14,7 @@ export default function ContactFooter() {
             <div>
               <h2 className="text-3xl font-display font-bold tracking-tight text-text-primary md:text-4xl">Get in touch.</h2>
               <p className="mt-2 text-sm leading-relaxed text-text-primary md:text-base">
-                Open to Senior PM, AI PM and Technical PM roles in search, personalization and e-commerce. Seattle or hybrid/remote.
+                Open to Senior PM, AI PM and Technical PM roles in search, personalization and e-commerce. On-site, hybrid or remote, and open to relocation.
               </p>
               <ul className="mt-4 flex flex-wrap gap-2">
                 <li>
@@ -83,7 +83,7 @@ export default function ContactFooter() {
         className="relative -mt-[8%] block h-auto w-full"
       />
       <p className="absolute bottom-3 left-0 right-0 text-center text-xs font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
-        © 2026 {PERSON.displayName}. Seattle, WA.
+        © 2026 {PERSON.displayName}.
       </p>
     </footer>
   );

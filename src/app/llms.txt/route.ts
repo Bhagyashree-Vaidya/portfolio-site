@@ -15,7 +15,7 @@ export function GET() {
 > ${SHORT_BIO}
 
 Contact: ${PERSON.email} · LinkedIn: ${PERSON.linkedin} · GitHub: ${PERSON.github}
-Location: Seattle, WA (open to hybrid or remote). Open to Senior PM, AI PM and Technical PM roles.
+Location: open to relocation, on-site, hybrid or remote. Open to Senior PM, AI PM and Technical PM roles.
 
 ## Experience
 - VWO (Wingify), Senior Product Manager, AI Agents, Mar 2024 – Sep 2025: owned Wingz, an agentic AI product for A/B testing.

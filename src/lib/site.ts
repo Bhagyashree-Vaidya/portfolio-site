@@ -8,7 +8,7 @@ export const PERSON = {
   preferredName: "Shree Vaidya",
   displayName: "Bhagyashree (Shree) Vaidya",
   jobTitle: "Senior Product Manager",
-  location: "Seattle, WA",
+  location: "Open to relocation",
   email: "bhagyashreevaidya08@gmail.com",
   // Live profile (verified 2026-11-21). The old /in/bhagyashree-vaidya-6b47a811a/ URL is dead.
   linkedin: "https://www.linkedin.com/in/shree-vaidya/",
@@ -18,10 +18,10 @@ export const PERSON = {
 };
 
 export const SHORT_BIO =
-  "Bhagyashree (Shree) Vaidya is a Seattle-based Senior Product Manager with 8+ years in product across e-commerce, cross-border shipping, Medicare insurance and B2B SaaS. At VWO she owned Wingz, an agentic AI product for A/B testing. Her work focuses on search, ranking, personalization and AI evaluation. She holds an M.S. in Information Management from the University of Washington and is PMP certified.";
+  "Bhagyashree (Shree) Vaidya is a Senior Product Manager with 8+ years in product across e-commerce, cross-border shipping, Medicare insurance and B2B SaaS. At VWO she owned Wingz, an agentic AI product for A/B testing. Her work focuses on search, ranking, personalization and AI evaluation. She holds an M.S. in Information Management from the University of Washington and is PMP certified.";
 
 export const META_DESCRIPTION =
-  "Shree Vaidya is a Seattle Senior Product Manager building AI agents, search and personalization for e-commerce. UW MS '26, PMP.";
+  "Shree Vaidya is a Senior Product Manager building AI agents, search and personalization for e-commerce. UW MS '26, PMP.";
 
 export const mailto = (subject?: string) =>
   `mailto:${PERSON.email}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
@@ -39,15 +39,9 @@ export function personJsonLd() {
     familyName: "Vaidya",
     jobTitle: PERSON.jobTitle,
     description:
-      "Seattle-based Senior Product Manager specializing in search, ranking, personalization and agentic AI for e-commerce and B2B SaaS.",
+      "Senior Product Manager specializing in search, ranking, personalization and agentic AI for e-commerce and B2B SaaS.",
     url: `${SITE_URL}/`,
     email: `mailto:${PERSON.email}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Seattle",
-      addressRegion: "WA",
-      addressCountry: "US",
-    },
     sameAs: [PERSON.linkedin, PERSON.github, "https://receivablesinfo.com/author/bhagyashree-vaidya/"],
     alumniOf: [
       { "@type": "CollegeOrUniversity", name: "University of Washington", sameAs: "https://www.washington.edu/" },
@@ -76,7 +70,6 @@ export function personJsonLd() {
     hasOccupation: {
       "@type": "Occupation",
       name: "Senior Product Manager",
-      occupationLocation: { "@type": "City", name: "Seattle, WA" },
       skills: "Search and ranking, personalization, agentic AI, LLM evaluation, A/B testing, e-commerce, SQL, Python",
     },
     knowsAbout: [

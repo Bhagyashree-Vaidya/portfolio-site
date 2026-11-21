@@ -18,6 +18,24 @@ export default function InteractiveCaseStudies() {
   const activeSlide = activeCaseStudy.slides[activeSlideIndex] || activeCaseStudy.slides[0];
   const accentColor = activeCaseStudy.accentColor;
 
+  // Shareable links: /#teardown-rover opens the Rover deck directly.
+  useEffect(() => {
+    const openFromHash = () => {
+      const m = window.location.hash.match(/^#teardown-([a-z0-9-]+)$/);
+      if (!m) return;
+      const study = caseStudiesData.find((c) => c.id === m[1]);
+      if (!study) return;
+      setActiveCaseStudyId(study.id);
+      setActiveSlideIndex(0);
+      requestAnimationFrame(() =>
+        document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth", block: "start" }),
+      );
+    };
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
+  }, []);
+
   // Reset slide index when case study changes
   useEffect(() => {
     setActiveSlideIndex(0);
@@ -45,15 +63,21 @@ export default function InteractiveCaseStudies() {
       <div className="mx-auto w-full max-w-[1600px] h-full flex flex-col pt-8 pb-6 px-4 md:px-8 lg:px-16">
         
         {/* 1. Product Selector */}
-        <nav className="flex items-center gap-2 mb-8 overflow-x-auto no-scrollbar shrink-0">
+        <h2 className="sr-only">Product teardown slide decks</h2>
+        <nav aria-label="Product teardowns" className="flex items-center gap-2 mb-8 overflow-x-auto no-scrollbar shrink-0">
           {caseStudiesData.map((study) => {
             const isActive = activeCaseStudyId === study.id;
             return (
-              <button
+              <a
                 key={study.id}
-                onClick={() => {
+                id={`teardown-${study.id}`}
+                href={`#teardown-${study.id}`}
+                aria-current={isActive ? "true" : undefined}
+                onClick={(e) => {
+                  e.preventDefault();
                   setActiveCaseStudyId(study.id);
                   setActiveSlideIndex(0);
+                  window.history.replaceState(null, "", `#teardown-${study.id}`);
                 }}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full whitespace-nowrap transition-all duration-300 relative ${
                   isActive 
@@ -72,7 +96,7 @@ export default function InteractiveCaseStudies() {
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
-              </button>
+              </a>
             );
           })}
         </nav>

@@ -117,7 +117,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         <aside className="mt-12 rounded-2xl bg-gradient-to-br from-[#FFF1EA] to-[#FFDCE5] p-6">
           <p className="text-text-primary">
-            I&apos;m a Seattle-based Senior Product Manager working on AI agents, search and e-commerce.{" "}
+            I&apos;m a Senior Product Manager working on AI agents, search and e-commerce.{" "}
             <a href={mailto(`About: ${post.title}`)} className="text-[#9C2F55] underline underline-offset-2">Email me</a> or{" "}
             <Link href="/case-studies" className="text-[#9C2F55] underline underline-offset-2">read my case studies</Link>.
           </p>

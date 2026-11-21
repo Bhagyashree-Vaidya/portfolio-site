@@ -11,7 +11,7 @@ const roles = [
     company: "University of Washington, ECE FunLab",
     role: "Graduate Product Developer, Satellite Signal Research",
     period: "Mar 2026 \u2013 Jun 2026",
-    location: "Seattle, WA",
+    location: "On-site",
     type: "Research",
     bio: "Research lab that captures Starlink satellite signals. I built the data product that turns raw captures into labeled satellite tracks.",
     highlights: [

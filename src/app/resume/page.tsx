@@ -7,7 +7,7 @@ import { PERSON, SITE_URL, jsonLdString, mailto, personJsonLd } from "@/lib/site
 export const metadata: Metadata = {
   title: "Résumé: Senior Product Manager, AI & Search",
   description:
-    "Résumé of Bhagyashree (Shree) Vaidya, Seattle Senior Product Manager: VWO (Wingz AI agent), Unity Senior Health, Stallion Express, BrandingArc. UW MS, PMP.",
+    "Résumé of Bhagyashree (Shree) Vaidya, Senior Product Manager: VWO (Wingz AI agent), Unity Senior Health, Stallion Express, BrandingArc. UW MS, PMP.",
   alternates: { canonical: "/resume" },
   openGraph: { url: "/resume", type: "profile" },
 };
@@ -50,7 +50,7 @@ const roles = [
     ],
   },
   {
-    org: "University of Washington, ECE FunLab", title: "Graduate Product Developer, Satellite Signal Research", dates: "Mar 2026 – Jun 2026", place: "Seattle, WA",
+    org: "University of Washington, ECE FunLab", title: "Graduate Product Developer, Satellite Signal Research", dates: "Mar 2026 – Jun 2026", place: "On-site",
     points: [
       "Built a 0-to-1 Python and Streamlit data product comparing detected Starlink signals with orbital models: processing from hours to under a minute, 90%+ detection accuracy.",
     ],
@@ -70,7 +70,7 @@ export default function ResumePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(ld) }} />
       <article className="mx-auto w-full max-w-[820px] px-6">
         <h1 className="font-display text-4xl font-semibold tracking-tight text-text-primary">Bhagyashree (Shree) Vaidya</h1>
-        <p className="mt-2 text-lg text-text-secondary">Senior Product Manager · AI agents, search &amp; personalization · Seattle, WA</p>
+        <p className="mt-2 text-lg text-text-secondary">Senior Product Manager · AI agents, search &amp; personalization · Open to relocation</p>
         <p className="mt-2 text-sm text-text-secondary">
           <a href={mailto("From your résumé page")} className="underline">{PERSON.email}</a> ·{" "}
           <a href={PERSON.linkedin} className="underline" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·{" "}
@@ -104,7 +104,7 @@ export default function ResumePage() {
         <section className="mt-10">
           <h2 className="font-display text-2xl font-semibold text-text-primary">Education and certification</h2>
           <ul className="mt-3 list-disc space-y-1 pl-6 text-text-secondary">
-            <li>M.S. Information Management, University of Washington, Seattle (2026)</li>
+            <li>M.S. Information Management, University of Washington (2026)</li>
             <li>B.E. Electrical Engineering, Rashtrasant Tukadoji Maharaj Nagpur University (2016)</li>
             <li>Project Management Professional (PMP), Project Management Institute (2026)</li>
           </ul>

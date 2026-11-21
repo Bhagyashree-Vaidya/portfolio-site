@@ -26,7 +26,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Shree Vaidya | Senior Product Manager, AI & Search | Seattle",
+    default: "Shree Vaidya | Senior Product Manager, AI & Search",
     template: "%s | Shree Vaidya",
   },
   description: META_DESCRIPTION,
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     url: "/",
     title: "Shree Vaidya | Senior Product Manager, AI & Search",
     description:
-      "Seattle Senior Product Manager building AI agents, search and personalization for e-commerce.",
+      "Senior Product Manager building AI agents, search and personalization for e-commerce.",
     firstName: "Bhagyashree",
     lastName: "Vaidya",
   },
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shree Vaidya | Senior Product Manager, AI & Search",
     description:
-      "Seattle Senior Product Manager building AI agents, search and personalization for e-commerce.",
+      "Senior Product Manager building AI agents, search and personalization for e-commerce.",
   },
 };
 
