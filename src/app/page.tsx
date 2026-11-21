@@ -37,13 +37,13 @@ export default function Home() {
         <div className="col-start-1 row-start-1 w-full min-w-0 z-10">
           <Identity />
           <Resume />
-          <ExpertiseHub />
+          <InteractiveCaseStudies />
           <FeaturedProductStories />
+          <ExpertiseHub />
           <Education />
           <CareerTimeline />
-          <InteractiveCaseStudies />
-          <Evidence />
           <SelectedAchievements />
+          <Evidence />
         </div>
       </div>
       <ContactFooter />
