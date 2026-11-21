@@ -80,7 +80,7 @@ function Tree() {
       className="absolute bottom-0 right-0 z-0 pointer-events-none flex items-end justify-end overflow-visible will-change-transform"
       style={{ x, y, opacity: presence }}
     >
-      <div className="grid h-[min(34vw,300px)] w-[min(68vw,560px)] min-h-[170px] min-w-[280px] place-items-end md:h-[min(22vw,330px)] md:w-[min(40vw,640px)] lg:h-[min(18vw,350px)] lg:w-[min(34vw,680px)]">
+      <div className="grid h-[26vw] w-[46vw] place-items-end opacity-80 md:opacity-100 md:h-[min(22vw,330px)] md:w-[min(40vw,640px)] lg:h-[min(18vw,350px)] lg:w-[min(34vw,680px)]">
         {stages.map((s, i) => (
           <Stage key={s.src} index={i} progress={progress} />
         ))}

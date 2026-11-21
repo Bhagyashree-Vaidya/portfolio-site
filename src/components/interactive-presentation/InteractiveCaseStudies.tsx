@@ -57,10 +57,10 @@ export default function InteractiveCaseStudies() {
   return (
     <section 
       id="case-studies"
-      className="relative w-full h-[100vh] min-h-[900px] overflow-hidden bg-transparent text-[#111111]"
+      className="relative w-full overflow-hidden bg-transparent text-[#111111] lg:h-[100vh] lg:min-h-[900px]"
       style={{ "--accent": accentColor } as React.CSSProperties}
     >
-      <div className="mx-auto w-full max-w-[1600px] h-full flex flex-col pt-8 pb-6 px-4 md:px-8 lg:px-16">
+      <div className="mx-auto w-full max-w-[1600px] flex flex-col pt-24 pb-10 px-4 md:px-8 lg:h-full lg:pt-8 lg:pb-6 lg:px-16">
         
         {/* 1. Product Selector */}
         <h2 className="sr-only">Product teardown slide decks</h2>
@@ -107,7 +107,7 @@ export default function InteractiveCaseStudies() {
           {/* 2 & 3. Main Browser Window */}
           <div className="flex-[3] relative flex flex-col min-w-0 bg-white rounded-[28px] overflow-hidden border border-black/5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] transition-shadow duration-300 hover:shadow-[0_40px_80px_rgba(15,23,42,0.12)]">
             {/* Browser Toolbar */}
-            <div className="h-12 border-b border-black/5 flex items-center px-4 shrink-0 bg-white z-10 relative">
+            <div className="h-8 lg:h-12 border-b border-black/5 flex items-center px-4 shrink-0 bg-white z-10 relative">
               <div className="flex gap-2 mr-auto">
                 <div className="w-3 h-3 rounded-full bg-[#E5E5E5]" />
                 <div className="w-3 h-3 rounded-full bg-[#E5E5E5]" />
@@ -116,7 +116,7 @@ export default function InteractiveCaseStudies() {
             </div>
 
             {/* Current Slide */}
-            <div className="flex-1 relative bg-[#F5F5F5] overflow-hidden flex items-center justify-center p-4">
+            <div className="relative aspect-video bg-[#F5F5F5] overflow-hidden flex items-center justify-center p-1.5 lg:flex-1 lg:aspect-auto lg:p-4">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`${activeCaseStudyId}-${activeSlide.id}`}
@@ -156,7 +156,7 @@ export default function InteractiveCaseStudies() {
           </div>
 
           {/* 4, 5, 6, 7. Right Panel */}
-          <div className="flex-[1] flex flex-col gap-6 overflow-y-auto no-scrollbar pb-4 pr-2">
+          <div className="hidden flex-[1] flex-col gap-6 overflow-y-auto no-scrollbar pb-4 pr-2 lg:flex">
             
             {/* 7. Page Navigator */}
             <div className="bg-white/40 backdrop-blur-md rounded-[24px] p-6 border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.04)] shrink-0">
