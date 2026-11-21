@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const findings = [
   {
@@ -68,6 +69,22 @@ const team = [
 ];
 
 export default function ConfirmationBiasPage() {
+  const [videoSrc, setVideoSrc] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    const load = () => setVideoSrc("/videos/LLM.mp4");
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (w.requestIdleCallback) {
+      const id = w.requestIdleCallback(load, { timeout: 3000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(load, 1500);
+    return () => window.clearTimeout(t);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-bg-primary">
       
@@ -75,7 +92,7 @@ export default function ConfirmationBiasPage() {
         <div className="max-w-[900px] mx-auto px-6">
           <Link
             href="/#achievements"
-            className="text-[#E86F93] hover:text-[#9C2F55] mb-8 inline-flex items-center gap-2 font-mono text-sm tracking-widest transition-colors"
+            className="text-[#9C2F55] hover:text-[#7a2443] mb-8 inline-flex items-center gap-2 font-mono text-sm tracking-widest transition-colors"
           >
             ← BACK TO RESEARCH
           </Link>
@@ -87,7 +104,7 @@ export default function ConfirmationBiasPage() {
             className="mb-16"
           >
             <div className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="px-3.5 py-1 text-xs font-mono font-bold bg-[#E86F93] text-white rounded-full">
+              <span className="px-3.5 py-1 text-xs font-mono font-bold bg-[#B83B67] text-white rounded-full">
                 GRADUATE RESEARCH
               </span>
               <span className="text-text-muted text-sm font-mono tracking-widest uppercase">
@@ -130,14 +147,20 @@ export default function ConfirmationBiasPage() {
                   Animated Research Poster — GSAP + CSS Grid + SVG
                 </span>
               </div>
+              {/* Video is attached once the browser is idle so it doesn't compete
+                  with first paint; the aspect ratio reserves its space (no layout shift). */}
               <video
-                src="/videos/LLM.mp4"
+                src={videoSrc}
                 controls
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="w-full"
+                preload="none"
+                width={2154}
+                height={1226}
+                aria-label="Animated research poster summarizing the confirmation bias study"
+                className="block w-full h-auto aspect-[2154/1226] bg-[#FFF5F0]"
               />
             </div>
           </motion.div>
@@ -184,7 +207,7 @@ export default function ConfirmationBiasPage() {
             <div className="p-8 rounded-[2rem] bg-gradient-to-br from-[#FFF1EA] to-[#FFDCE5] border-l-[6px] border-[#E86F93] shadow-sm relative overflow-hidden">
                <div className="absolute inset-0 bg-white/20 backdrop-blur-sm"></div>
                <div className="relative z-10">
-                <p className="text-[#E86F93] font-mono tracking-widest text-sm uppercase font-bold mb-3">
+                <p className="text-[#9C2F55] font-mono tracking-widest text-sm uppercase font-bold mb-3">
                   Research Question
                 </p>
                 <p className="text-text-primary text-xl md:text-2xl font-display leading-relaxed font-medium">
@@ -252,13 +275,13 @@ export default function ConfirmationBiasPage() {
                 >
                   <div className="absolute inset-0 bg-white/30 backdrop-blur-[2px]"></div>
                   <div className="relative z-10 flex flex-col md:flex-row items-start gap-6">
-                    <div className="flex-shrink-0 w-16 h-16 rounded-[1rem] flex items-center justify-center bg-gradient-to-br from-[#E86F93] to-[#C1456A] text-white font-display font-bold text-2xl shadow-md transform -rotate-3 group-hover:rotate-0 transition-transform">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-[1rem] flex items-center justify-center bg-gradient-to-br from-[#B83B67] to-[#9C2F55] text-white font-display font-bold text-2xl shadow-md transform -rotate-3 group-hover:rotate-0 transition-transform">
                       {f.number}
                     </div>
                     <div className="flex-1">
                       <div className="flex flex-wrap items-center gap-4 mb-3">
                         <h3 className="text-2xl font-display font-bold text-text-primary">{f.headline}</h3>
-                        <span className="px-3 py-1 text-sm font-mono font-bold bg-white/60 border border-[#F0AFC0]/60 text-[#E86F93] rounded-full shadow-sm">
+                        <span className="px-3 py-1 text-sm font-mono font-bold bg-white/60 border border-[#F0AFC0]/60 text-[#9C2F55] rounded-full shadow-sm">
                           {f.stat}
                         </span>
                       </div>
@@ -297,7 +320,7 @@ export default function ConfirmationBiasPage() {
             <div className="space-y-6">
               {recommendations.map((rec, idx) => (
                 <div key={idx} className="flex gap-6 items-start group">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#FFF1EA] to-[#FFDCE5] border border-[#F0AFC0]/60 text-[#E86F93] font-display font-bold flex items-center justify-center text-lg shadow-sm group-hover:scale-110 transition-transform">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#FFF1EA] to-[#FFDCE5] border border-[#F0AFC0]/60 text-[#9C2F55] font-display font-bold flex items-center justify-center text-lg shadow-sm group-hover:scale-110 transition-transform">
                     {idx + 1}
                   </div>
                   <p className="text-text-primary font-light leading-relaxed text-lg pt-1">{rec}</p>
@@ -313,8 +336,7 @@ export default function ConfirmationBiasPage() {
             viewport={{ once: true }}
             className="mb-20"
           >
-            <div className="p-10 md:p-14 rounded-[2.5rem] bg-gradient-to-br from-[#E86F93] to-[#C1456A] text-white shadow-lg relative overflow-hidden">
-               <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-20 mix-blend-overlay"></div>
+            <div className="p-10 md:p-14 rounded-[2.5rem] bg-gradient-to-br from-[#B83B67] to-[#9C2F55] text-white shadow-lg relative overflow-hidden">
                <div className="relative z-10">
                  <h2 className="text-3xl font-display font-bold mb-6 opacity-90">What I Learned</h2>
                  <p className="text-xl md:text-2xl font-display font-medium leading-relaxed opacity-100">
@@ -360,7 +382,7 @@ export default function ConfirmationBiasPage() {
                   key={name}
                   className={`px-4 py-2 rounded-full text-sm font-mono tracking-wide ${
                     name === "Bhagyashree Vaidya"
-                      ? "bg-gradient-to-r from-[#E86F93] to-[#C1456A] text-white font-bold shadow-md"
+                      ? "bg-gradient-to-r from-[#B83B67] to-[#9C2F55] text-white font-bold shadow-md"
                       : "bg-white border border-[#F0AFC0]/50 text-text-secondary"
                   }`}
                 >
@@ -382,7 +404,7 @@ export default function ConfirmationBiasPage() {
               </h3>
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center rounded-full bg-[#E86F93] px-10 py-5 text-lg font-medium text-white shadow-lg transition-all hover:scale-105 hover:bg-[#9C2F55] focus:outline-none focus:ring-4 focus:ring-[#F0AFC0]"
+                className="inline-flex items-center justify-center rounded-full bg-[#B83B67] px-10 py-5 text-lg font-medium text-white shadow-lg transition-all hover:scale-105 hover:bg-[#9C2F55] focus:outline-none focus:ring-4 focus:ring-[#F0AFC0]"
               >
                 Get in Touch
               </a>
