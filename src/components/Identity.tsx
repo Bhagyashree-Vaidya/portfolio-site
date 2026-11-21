@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { SHORT_BIO } from "@/lib/site";
 
 export default function Identity() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -42,9 +43,9 @@ export default function Identity() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-20 col-span-full mb-[20px]"
         >
-          <div className="mb-2 font-mono text-sm uppercase tracking-widest text-text-tertiary">
-            About
-          </div>
+          <h1 className="mb-3 font-mono text-sm uppercase tracking-widest text-text-secondary">
+            Bhagyashree (Shree) Vaidya · Senior Product Manager, AI &amp; Search · Seattle, WA
+          </h1>
           <h2 className="text-3xl font-display font-medium leading-[1.1] tracking-tight text-text-primary sm:text-4xl md:text-5xl lg:text-6xl xl:text-[5rem] relative z-30 w-full max-w-none md:whitespace-nowrap">
             I move customer <br />
             intent into <br />
@@ -61,8 +62,25 @@ export default function Identity() {
           className="relative z-20 max-w-[640px] md:col-span-5 self-start pt-2"
         >
           <p className="max-w-[620px] text-sm font-light leading-relaxed text-text-primary sm:text-base md:text-lg lg:text-xl">
-            Shree spent her career building products that influence what customers discover, compare, and ultimately choose, from enterprise retail, healthcare, debt collection, and space industry. Her work spans search, merchandising, personalization, experimentation, and behavioral analytics, but she's known for asking a simpler question before writing a roadmap: Is this actually the problem worth solving? She enjoys working with customers, engineering teams, and business leaders to separate feature requests from real opportunities, helping organizations invest where customer value and business impact intersect.
+            {SHORT_BIO}
           </p>
+          <p className="mt-4 max-w-[620px] text-sm font-light leading-relaxed text-text-primary sm:text-base md:text-lg">
+            Before writing a roadmap, she asks a simple question: is this actually the problem worth solving? She works with customers, engineering teams and business leaders to separate feature requests from real opportunities.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3 pointer-events-auto">
+            <a
+              href="#contact"
+              className="rounded-md bg-[#B83B67] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-[#9C2F55]"
+            >
+              Contact Shree
+            </a>
+            <a
+              href="#resume"
+              className="rounded-md border border-[#B83B67] bg-white/70 px-5 py-2.5 text-sm font-medium text-[#9C2F55] transition-colors hover:bg-white"
+            >
+              View experience
+            </a>
+          </div>
         </motion.div>
 
         <motion.div

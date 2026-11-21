@@ -4,20 +4,23 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import { Great_Vibes } from "next/font/google";
+import { PERSON } from "@/lib/site";
 
 const cursiveFont = Great_Vibes({ weight: "400", subsets: ["latin"] });
 
 const navItems = [
-  { name: "Work", href: "/#work" },
-  { name: "Case Study", href: "/#work" },
-  { name: "Projects", href: "/projects/pama" },
-  { name: "Research", href: "/#achievements" },
   { name: "About", href: "/#identity" },
+  { name: "Experience", href: "/#resume" },
+  { name: "Case Studies", href: "/#case-studies" },
+  { name: "Research", href: "/research/confirmation-bias-ai" },
+  { name: "Projects", href: "/projects/pama" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navigation() {
   const { scrollY, scrollYProgress } = useScroll();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 50) {
@@ -44,7 +47,7 @@ export default function Navigation() {
           Shree
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav aria-label="Main" className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link 
               key={item.name}
@@ -55,7 +58,7 @@ export default function Navigation() {
             </Link>
           ))}
           <a
-            href="https://www.linkedin.com/in/bhagyashree-vaidya-6b47a811a/"
+            href={PERSON.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="text-text-secondary hover:text-[#E86F93] transition-colors duration-300 flex items-center ml-2"
@@ -67,7 +70,14 @@ export default function Navigation() {
           </a>
         </nav>
 
-        <button className="flex rounded-full border border-[#F0AFC0]/55 bg-[#FFF1EA] p-2.5 shadow-[0_10px_24px_rgba(232,111,147,0.10)] md:hidden flex-col gap-1.5">
+        <button
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setMenuOpen((o) => !o)}
+          className="flex rounded-full border border-[#F0AFC0]/55 bg-[#FFF1EA] p-2.5 shadow-[0_10px_24px_rgba(232,111,147,0.10)] md:hidden flex-col gap-1.5"
+        >
           <div className="w-5 h-0.5 bg-[#9C2F55] rounded-full"></div>
           <div className="w-5 h-0.5 bg-[#9C2F55] rounded-full"></div>
         </button>
@@ -81,6 +91,32 @@ export default function Navigation() {
           transition={{ duration: 0.3 }}
         />
       </div>
+      {menuOpen && (
+        <nav
+          id="mobile-menu"
+          aria-label="Main"
+          className="absolute top-full mt-2 w-[95%] rounded-2xl border border-[#F0AFC0]/45 bg-white/95 p-4 shadow-lg backdrop-blur-xl md:hidden"
+        >
+          <ul className="flex flex-col">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block rounded-lg px-3 py-3 text-base font-medium text-text-primary hover:bg-[#FFF1EA]"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <a href={PERSON.linkedin} target="_blank" rel="noopener noreferrer" className="block rounded-lg px-3 py-3 text-base font-medium text-text-primary hover:bg-[#FFF1EA]">
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </nav>
+      )}
     </motion.header>
   );
 }
