@@ -8,9 +8,9 @@ These were skipped on purpose because they need your accounts, your confirmation
 |---|---|---|---|
 | A1 | Merge PR #2, then this PR, and deploy | GitHub / Vercel | |
 | A2 | Change the apex redirect `shreevaidya.com → www` from 307 to **308 permanent** | Vercel → Project → Settings → Domains | |
-| A3 | Verify the domain in **Google Search Console** (DNS TXT record preferred) | search.google.com/search-console | Or set the env var `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in Vercel and redeploy |
-| A4 | Verify in **Bing Webmaster Tools** (you can import from Search Console) | bing.com/webmasters | Or set `NEXT_PUBLIC_BING_SITE_VERIFICATION` |
-| A5 | Submit `https://www.shreevaidya.com/sitemap.xml` in both | | Check Pages / Index coverage weekly for 4 weeks |
+| A3 | ✅ **Done 2026-11-21.** Google Search Console: URL-prefix property `https://www.shreevaidya.com/` verified with the HTML meta tag (in `layout.tsx`; don't remove it) | | |
+| A4 | ✅ **Done 2026-11-21.** Bing Webmaster Tools: signed in with Google; site verified with the `msvalidate.01` meta tag | | |
+| A5 | ✅ **Done 2026-11-21.** Sitemap submitted to Google (17 pages discovered) and Bing (processing). All 17 URLs were also pushed to Bing via IndexNow (key file `public/70b55f26818351badf4e3779be1a63bf.txt`) | | Check Pages / index coverage weekly for 4 weeks |
 | A6 | Create a **GA4** property, then set `NEXT_PUBLIC_GA_ID=G-…` in Vercel | analytics.google.com | Mark `contact_email`, `resume_request`, `resume_download` and `linkedin_click` as key events |
 | A7 | Optional: Vercel Speed Insights for real-user Core Web Vitals | Vercel dashboard | |
 
